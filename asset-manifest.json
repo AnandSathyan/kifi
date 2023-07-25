@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/AnandSathyan/kifi/static/css/main.c747479f.css",
-    "main.js": "/AnandSathyan/kifi/static/js/main.3069a954.js",
-    "index.html": "/AnandSathyan/kifi/index.html",
-    "main.c747479f.css.map": "/AnandSathyan/kifi/static/css/main.c747479f.css.map",
-    "main.3069a954.js.map": "/AnandSathyan/kifi/static/js/main.3069a954.js.map"
+    "main.css": "/kifi/static/css/main.c747479f.css",
+    "main.js": "/kifi/static/js/main.3069a954.js",
+    "index.html": "/kifi/index.html",
+    "main.c747479f.css.map": "/kifi/static/css/main.c747479f.css.map",
+    "main.3069a954.js.map": "/kifi/static/js/main.3069a954.js.map"
   },
   "entrypoints": [
     "static/css/main.c747479f.css",
