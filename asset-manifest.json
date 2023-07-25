@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kifi/static/css/main.c747479f.css",
+    "main.js": "/kifi/static/js/main.3069a954.js",
+    "index.html": "/kifi/index.html",
+    "main.c747479f.css.map": "/kifi/static/css/main.c747479f.css.map",
+    "main.3069a954.js.map": "/kifi/static/js/main.3069a954.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c747479f.css",
+    "static/js/main.3069a954.js"
+  ]
+}
