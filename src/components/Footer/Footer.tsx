@@ -191,7 +191,7 @@ function Footer() {
 
               <li className="footer-nav-item">
                 <a href="#" className="footer-nav-link">
-                  Shell Fish
+                  Shell Fishs
                 </a>
               </li>
 
