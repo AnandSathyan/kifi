@@ -291,7 +291,7 @@ function ProductSidebar() {
 
                 <div className="showcase-content">
                   <a href="#">
-                    <h4 className="showcase-title"></h4>
+                    <h4 className="showcase-title">Mackerel / അയല</h4>
                   </a>
 
                   <div className="showcase-rating">
@@ -309,8 +309,8 @@ function ProductSidebar() {
                   </div>
 
                   <div className="price-box">
-                    <del>$5.00</del>
-                    <p className="price">$4.00</p>
+                    <del>&#8377;5.00</del>
+                    <p className="price">&#8377;4.00</p>
                   </div>
                 </div>
               </div>
@@ -328,7 +328,7 @@ function ProductSidebar() {
 
                 <div className="showcase-content">
                   <a href="#">
-                    <h4 className="showcase-title">men's hoodies t-shirt</h4>
+                    <h4 className="showcase-title">Trevally / വറ്റ</h4>
                   </a>
                   <div className="showcase-rating">
                     <IoIosStar />
@@ -345,8 +345,8 @@ function ProductSidebar() {
                   </div>
 
                   <div className="price-box">
-                    <del>$17.00</del>
-                    <p className="price">$7.00</p>
+                    <del>&#8377;17.00</del>
+                    <p className="price">&#8377;7.00</p>
                   </div>
                 </div>
               </div>
@@ -364,7 +364,7 @@ function ProductSidebar() {
 
                 <div className="showcase-content">
                   <a href="#">
-                    <h4 className="showcase-title">girls t-shirt</h4>
+                    <h4 className="showcase-title">Tuna / ചൂര</h4>
                   </a>
                   <div className="showcase-rating">
                     <IoIosStarOutline />
@@ -381,8 +381,8 @@ function ProductSidebar() {
                   </div>
 
                   <div className="price-box">
-                    <del>$5.00</del>
-                    <p className="price">$3.00</p>
+                    <del>&#8377;5.00</del>
+                    <p className="price">&#8377;3.00</p>
                   </div>
                 </div>
               </div>
@@ -400,7 +400,7 @@ function ProductSidebar() {
 
                 <div className="showcase-content">
                   <a href="#">
-                    <h4 className="showcase-title">woolen hat for men</h4>
+                    <h4 className="showcase-title">Catla / കട്ല</h4>
                   </a>
                   <div className="showcase-rating">
                     <IoIosStarOutline />
@@ -417,8 +417,8 @@ function ProductSidebar() {
                   </div>
 
                   <div className="price-box">
-                    <del>$15.00</del>
-                    <p className="price">$12.00</p>
+                    <del>&#8377;15.00</del>
+                    <p className="price">&#8377;12.00</p>
                   </div>
                 </div>
               </div>

@@ -83,8 +83,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$48.00</p>
-                <del>$75.00</del>
+                <p className="price">&#8377;48.00</p>
+                <del>&#8377;75.00</del>
               </div>
             </div>
           </div>
@@ -155,8 +155,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$45.00</p>
-                <del>$56.00</del>
+                <p className="price">&#8377;45.00</p>
+                <del>&#8377;56.00</del>
               </div>
             </div>
           </div>
@@ -225,8 +225,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$58.00</p>
-                <del>$65.00</del>
+                <p className="price">&#8377;58.00</p>
+                <del>&#8377;65.00</del>
               </div>
             </div>
           </div>
@@ -297,8 +297,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$25.00</p>
-                <del>$35.00</del>
+                <p className="price">&#8377;25.00</p>
+                <del>&#8377;35.00</del>
               </div>
             </div>
           </div>
@@ -367,8 +367,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$99.00</p>
-                <del>$105.00</del>
+                <p className="price">&#8377;99.00</p>
+                <del>&#8377;105.00</del>
               </div>
             </div>
           </div>
@@ -439,8 +439,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$150.00</p>
-                <del>$170.00</del>
+                <p className="price">&#8377;150.00</p>
+                <del>&#8377;170.00</del>
               </div>
             </div>
           </div>
@@ -509,8 +509,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$100.00</p>
-                <del>$120.00</del>
+                <p className="price">&#8377;100.00</p>
+                <del>&#8377;120.00</del>
               </div>
             </div>
           </div>
@@ -581,8 +581,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$25.00</p>
-                <del>$30.00</del>
+                <p className="price">&#8377;25.00</p>
+                <del>&#8377;30.00</del>
               </div>
             </div>
           </div>
@@ -651,8 +651,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$32.00</p>
-                <del>$45.00</del>
+                <p className="price">&#8377;32.00</p>
+                <del>&#8377;45.00</del>
               </div>
             </div>
           </div>
@@ -723,8 +723,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$58.00</p>
-                <del>$64.00</del>
+                <p className="price">&#8377;58.00</p>
+                <del>&#8377;64.00</del>
               </div>
             </div>
           </div>
@@ -793,8 +793,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$50.00</p>
-                <del>$65.00</del>
+                <p className="price">&#8377;50.00</p>
+                <del>&#8377;65.00</del>
               </div>
             </div>
           </div>
@@ -865,8 +865,8 @@ function ProductGrid() {
               </div>
 
               <div className="price-box">
-                <p className="price">$78.00</p>
-                <del>$85.00</del>
+                <p className="price">&#8377;78.00</p>
+                <del>&#8377;85.00</del>
               </div>
             </div>
           </div>

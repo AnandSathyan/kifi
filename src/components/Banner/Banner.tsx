@@ -8,7 +8,7 @@ function Banner() {
           <div className="slider-container has-scrollbar">
             <div className="slider-item">
               <img
-                src="https://c4.wallpaperflare.com/wallpaper/4/31/580/5bd36627f113a-wallpaper-preview.jpg"
+                src="./assets/images/banner-fish.jpeg"
                 alt="women's latest fashion sale"
                 className="banner-img"
               />
@@ -32,7 +32,7 @@ function Banner() {
 
             <div className="slider-item">
               <img
-                src="https://as1.ftcdn.net/v2/jpg/02/86/57/54/1000_F_286575423_svVI7lSOHUlcGRzx50QSTjs8OXuwceYK.jpg"
+                src="./assets/images/banner-fish1.avif"
                 alt="modern sunglasses"
                 className="banner-img"
               />
@@ -54,7 +54,7 @@ function Banner() {
 
             <div className="slider-item">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQn2FIIdDoUZX7Eq9T0Xnl0Lt-qjpZlz5TItzSnY7fnD7LqekKDdgN8HawU9iZvRCmvUY&usqp=CAU"
+                src="./assets/images/banner-fish5.jpeg"
                 alt="new fashion summer sale"
                 className="banner-img"
               />

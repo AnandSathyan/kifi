@@ -52,9 +52,9 @@ function ProductFeatured() {
                 </p>
 
                 <div className="price-box">
-                  <p className="price">$150.00</p>
+                  <p className="price">&#8377;150.00</p>
 
-                  <del>$200.00</del>
+                  <del>&#8377;200.00</del>
                 </div>
 
                 <button className="add-cart-btn">add to cart</button>
@@ -107,7 +107,7 @@ function ProductFeatured() {
             <div className="showcase">
               <div className="showcase-banner">
                 <img
-                  src="./assets/images/products/jewellery-1.jpg"
+                  src="./assets/images/products/banner-product.png"
                   alt="Rose Gold diamonds Earring"
                   className="showcase-img"
                 />
@@ -130,7 +130,7 @@ function ProductFeatured() {
 
                 <h3 className="showcase-title">
                   <a href="#" className="showcase-title">
-                    Rose Gold diamonds Earring
+                    Boal ( ആറ്റുവാള ) Curry cut
                   </a>
                 </h3>
 
@@ -140,8 +140,8 @@ function ProductFeatured() {
                 </p>
 
                 <div className="price-box">
-                  <p className="price">$1990.00</p>
-                  <del>$2000.00</del>
+                  <p className="price">&#8377;1990.00</p>
+                  <del>&#8377;2000.00</del>
                 </div>
 
                 <button className="add-cart-btn">add to cart</button>

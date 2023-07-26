@@ -31,8 +31,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$45.00</p>
-                    <del>$12.00</del>
+                    <p className="price">&#8377;45.00</p>
+                    <del>&#8377;12.00</del>
                   </div>
                 </div>
               </div>
@@ -59,8 +59,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$61.00</p>
-                    <del>$9.00</del>
+                    <p className="price">&#8377;61.00</p>
+                    <del>&#8377;9.00</del>
                   </div>
                 </div>
               </div>
@@ -87,8 +87,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$76.00</p>
-                    <del>$25.00</del>
+                    <p className="price">&#8377;76.00</p>
+                    <del>&#8377;25.00</del>
                   </div>
                 </div>
               </div>
@@ -113,8 +113,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$68.00</p>
-                    <del>$31.00</del>
+                    <p className="price">&#8377;68.00</p>
+                    <del>&#8377;31.00</del>
                   </div>
                 </div>
               </div>
@@ -143,8 +143,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$61.00</p>
-                    <del>$11.00</del>
+                    <p className="price">&#8377;61.00</p>
+                    <del>&#8377;11.00</del>
                   </div>
                 </div>
               </div>
@@ -171,8 +171,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$32.00</p>
-                    <del>$20.00</del>
+                    <p className="price">&#8377;32.00</p>
+                    <del>&#8377;20.00</del>
                   </div>
                 </div>
               </div>
@@ -199,8 +199,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$50.00</p>
-                    <del>$25.00</del>
+                    <p className="price">&#8377;50.00</p>
+                    <del>&#8377;25.00</del>
                   </div>
                 </div>
               </div>
@@ -229,8 +229,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$20.00</p>
-                    <del>$10.00</del>
+                    <p className="price">&#8377;20.00</p>
+                    <del>&#8377;10.00</del>
                   </div>
                 </div>
               </div>
@@ -267,8 +267,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$49.00</p>
-                    <del>$15.00</del>
+                    <p className="price">&#8377;49.00</p>
+                    <del>&#8377;15.00</del>
                   </div>
                 </div>
               </div>
@@ -295,8 +295,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$78.00</p>
-                    <del>$36.00</del>
+                    <p className="price">&#8377;78.00</p>
+                    <del>&#8377;36.00</del>
                   </div>
                 </div>
               </div>
@@ -323,8 +323,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$94.00</p>
-                    <del>$42.00</del>
+                    <p className="price">&#8377;94.00</p>
+                    <del>&#8377;42.00</del>
                   </div>
                 </div>
               </div>
@@ -351,8 +351,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$54.00</p>
-                    <del>$65.00</del>
+                    <p className="price">&#8377;54.00</p>
+                    <del>&#8377;65.00</del>
                   </div>
                 </div>
               </div>
@@ -381,8 +381,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$52.00</p>
-                    <del>$55.00</del>
+                    <p className="price">&#8377;52.00</p>
+                    <del>&#8377;55.00</del>
                   </div>
                 </div>
               </div>
@@ -409,8 +409,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$20.00</p>
-                    <del>$30.00</del>
+                    <p className="price">&#8377;20.00</p>
+                    <del>&#8377;30.00</del>
                   </div>
                 </div>
               </div>
@@ -437,8 +437,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$56.00</p>
-                    <del>$78.00</del>
+                    <p className="price">&#8377;56.00</p>
+                    <del>&#8377;78.00</del>
                   </div>
                 </div>
               </div>
@@ -465,8 +465,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$50.00</p>
-                    <del>$55.00</del>
+                    <p className="price">&#8377;50.00</p>
+                    <del>&#8377;55.00</del>
                   </div>
                 </div>
               </div>
@@ -502,8 +502,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$45.00</p>
-                    <del>$12.00</del>
+                    <p className="price">&#8377;45.00</p>
+                    <del>&#8377;12.00</del>
                   </div>
                 </div>
               </div>
@@ -530,8 +530,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$61.00</p>
-                    <del>$9.00</del>
+                    <p className="price">&#8377;61.00</p>
+                    <del>&#8377;9.00</del>
                   </div>
                 </div>
               </div>
@@ -558,8 +558,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$76.00</p>
-                    <del>$25.00</del>
+                    <p className="price">&#8377;76.00</p>
+                    <del>&#8377;25.00</del>
                   </div>
                 </div>
               </div>
@@ -584,8 +584,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$68.00</p>
-                    <del>$31.00</del>
+                    <p className="price">&#8377;68.00</p>
+                    <del>&#8377;31.00</del>
                   </div>
                 </div>
               </div>
@@ -614,8 +614,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$61.00</p>
-                    <del>$11.00</del>
+                    <p className="price">&#8377;61.00</p>
+                    <del>&#8377;11.00</del>
                   </div>
                 </div>
               </div>
@@ -642,8 +642,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$32.00</p>
-                    <del>$20.00</del>
+                    <p className="price">&#8377;32.00</p>
+                    <del>&#8377;20.00</del>
                   </div>
                 </div>
               </div>
@@ -670,8 +670,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$50.00</p>
-                    <del>$25.00</del>
+                    <p className="price">&#8377;50.00</p>
+                    <del>&#8377;25.00</del>
                   </div>
                 </div>
               </div>
@@ -698,8 +698,8 @@ function ProductMinimal() {
                   </a>
 
                   <div className="price-box">
-                    <p className="price">$20.00</p>
-                    <del>$10.00</del>
+                    <p className="price">&#8377;20.00</p>
+                    <del>&#8377;10.00</del>
                   </div>
                 </div>
               </div>
