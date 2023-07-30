@@ -1065,6 +1065,9 @@ body::-webkit-scrollbar-thumb:hover {
   padding: 15px;
   border-radius: var(--border-radius-md);
 }
+.product-minimal .showcase img:hover {
+  transform: scale(1.3);
+}
 
 .product-minimal .showcase:not(:last-child) {
   margin-bottom: 15px;
@@ -1137,6 +1140,7 @@ body::-webkit-scrollbar-thumb:hover {
   border: 1px solid var(--cultured);
   border-radius: var(--border-radius-md);
   scroll-snap-align: start;
+  background-color: #d7edf1;
 }
 
 .product-featured .showcase-img {
@@ -1301,7 +1305,9 @@ body::-webkit-scrollbar-thumb:hover {
 .product-grid .showcase-banner {
   position: relative;
 }
-
+.showcase-banner img {
+  height: auto;
+}
 .product-grid .product-img {
   width: 100%;
   height: 100%;
@@ -1893,6 +1899,8 @@ footer {
   .banner-content {
     top: 50%;
     right: auto;
+
+    justify-content: center;
     bottom: auto;
     transform: translateY(-50%);
     max-width: 320px;
@@ -2277,12 +2285,51 @@ footer {
 
   .header-social-container .social-link {
     padding: 5px;
-    background: hsl(0, 0%, 95%);
+    /* background: hsl(142, 39%, 66%); */
+
+    /* background: #feda75; */
     border-radius: var(--border-radius-sm);
-    color: var(--sonic-silver);
+    /* color: var(--sonic-silver); */
+    color: var(--white);
     transition: var(--transition-timing);
   }
-
+  .header-social-container .instagram {
+    background: #f09433;
+    background: -moz-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: -webkit-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+  }
+  .header-social-container .linkedIn {
+    background: #0e76a8;
+  }
+  .header-social-container .twitter {
+    background: #00acee;
+  }
+  .header-social-container .facebook {
+    background: #3b5998;
+  }
   .header-social-container .social-link:hover {
     background: var(--salmon-pink);
     color: var(--white);
@@ -2785,5 +2832,8 @@ footer {
   .banner-content {
     left: 110px;
     max-width: 460px;
+  }
+  .header-top-bg {
+    background: var(--eerie-black);
   }
 }

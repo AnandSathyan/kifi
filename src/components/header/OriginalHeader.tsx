@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IoIosAdd, IoIosHeartEmpty, IoIosRemove } from "react-icons/io";
 import {
   IoAdd,
@@ -16,38 +16,49 @@ import {
   IoPersonOutline,
   IoSearchOutline,
 } from "react-icons/io5";
-
+import { ApiClientData } from "../../api/kifi";
+const params = "?session_id=f42eed301459fd72ffd438df935968a74d643726";
 function OriginalHeader() {
+  useEffect(() => {
+    ApiClientData(params, {
+      jsonrpc: "2.0",
+      params: {
+        model: "stock.location",
+        method: "get_location",
+        args: [],
+      },
+    });
+  }, []);
   return (
     <div>
       {" "}
       <header>
-        <div className="header-top">
+        <div className="header-top bg-[#212121]">
           <div className="container">
-            <ul className="header-social-container">
-              <li>
-                <a href="#" className="social-link">
+            <ul className="header-social-container ">
+              <li className="facebook">
+                <a href="#" className="social-link facebook">
                   <IoLogoFacebook />
                   {/* <ion-icon name="logo-facebook"></ion-icon> */}
                 </a>
               </li>
 
               <li>
-                <a href="#" className="social-link">
+                <a href="#" className="social-link twitter">
                   <IoLogoTwitter />
                   {/* <ion-icon name="logo-twitter"></ion-icon> */}
                 </a>
               </li>
 
               <li>
-                <a href="#" className="social-link">
+                <a href="#" className="social-link instagram">
                   <IoLogoInstagram />
                   {/* <ion-icon name="logo-instagram"></ion-icon> */}
                 </a>
               </li>
 
               <li>
-                <a href="#" className="social-link">
+                <a href="#" className="social-link linkedIn">
                   <IoLogoLinkedin />
                   {/* <ion-icon name="logo-linkedin"></ion-icon> */}
                 </a>
@@ -62,12 +73,12 @@ function OriginalHeader() {
             </div>
 
             <div className="header-top-actions">
-              <select name="currency">
+              <select name="currency bg-[#d7edf1]!importnt">
                 <option value="usd">INR &#x20B9;</option>
                 <option value="eur">USD &#36;</option>
               </select>
 
-              <select name="language">
+              <select name="language bg-[#d7edf1]">
                 <option value="en-US">English</option>
                 <option value="es-ES">
                   &#3374;&#3378;&#3375;&#3390;&#3379;&#3330;

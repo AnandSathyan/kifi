@@ -44,19 +44,13 @@ import Carousel from "./Carousel";
 function ImageSlider() {
   const slides = [
     {
-      url: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Sashimi_-_Maguro_Restaurant%2C_Bangna%2C_Bangkok_(44856596864).jpg",
+      url: "./assets/images/banner-fish.jpeg",
     },
     {
-      url: "https://www.foodiesfeed.com/wp-content/uploads/2023/04/plate-of-delicious-beef-tacos.jpg",
+      url: "./assets/images/banner-fish1.avif",
     },
     {
-      url: "https://www.foodiesfeed.com/wp-content/uploads/2023/04/delicious-fried-salmon-fillet-with-herbs.jpg",
-    },
-    {
-      url: "https://www.foodiesfeed.com/wp-content/uploads/2023/04/salmon-nigiri.jpg",
-    },
-    {
-      url: "https://www.foodiesfeed.com/wp-content/uploads/2023/05/freshly-prepared-beef-steak-with-vegetables.jpg",
+      url: "./assets/images/banner-fish5.jpeg",
     },
   ];
   console.log(
@@ -65,57 +59,61 @@ function ImageSlider() {
   );
 
   return (
-    <div
-      id="carouselDarkVariant"
-      className="relative"
-      data-te-carousel-init
-      data-te-carousel-slide
-    >
-      {/* <!-- Carousel indicators --> */}
-      <div
-        className="absolute inset-x-0 bottom-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
-        data-te-carousel-indicators
-      >
-        <button
-          data-te-target="#carouselDarkVariant"
-          data-te-slide-to="0"
-          data-te-carousel-active
-          className="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          data-te-target="#carouselDarkVariant"
-          className="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-          data-te-slide-to="1"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          data-te-target="#carouselDarkVariant"
-          className="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-          data-te-slide-to="2"
-          aria-label="Slide 1"
-        ></button>
-      </div>
+    <div className="banner">
+      <div className="container">
+        <div className="slider-container has-scrollbar">
+          <div className="slider-item">
+            {/* <div
+              id="carouselDarkVariant"
+              className="relative"
+              data-te-carousel-init
+              data-te-carousel-slide
+            > */}
+            {/* <!-- Carousel indicators --> */}
+            <div
+              // className="absolute inset-x-0 bottom-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+              data-te-carousel-indicators
+            >
+              {/*                 
+                <button
+                  data-te-target="#carouselDarkVariant"
+                  data-te-slide-to="0"
+                  data-te-carousel-active
+                  className="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  data-te-target="#carouselDarkVariant"
+                  className="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                  data-te-slide-to="1"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  data-te-target="#carouselDarkVariant"
+                  className="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-black bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                  data-te-slide-to="2"
+                  aria-label="Slide 1"
+                ></button> */}
+            </div>
 
-      {/* <!-- Carousel items --> */}
-      <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-        {/* <!-- First item --> */}
-        <div
-          className="relative float-left -mr-[100%] w-full !transform-none  transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
-          data-te-carousel-fade
-          data-te-carousel-item
-          data-te-carousel-active
-        >
-          <Carousel slides={slides} />
+            {/* <!-- Carousel items --> */}
+            {/* <div className="relative w-full overflow-hidden after:clear-both after:block after:content-['']"> */}
+            {/* <!-- First item --> */}
+            <div
+              data-te-carousel-fade
+              data-te-carousel-item
+              data-te-carousel-active
+            >
+              <Carousel slides={slides} />
 
-          {/* <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-black md:block">
+              {/* <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-black md:block">
             <h5 className="text-xl">First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div> */}
-        </div>
-        {/* <!-- Second item --> */}
-        {/* <div
+            </div>
+            {/* <!-- Second item --> */}
+            {/* <div
           className="relative float-left -mr-[100%] hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
           data-te-carousel-fade
           data-te-carousel-item
@@ -130,8 +128,8 @@ function ImageSlider() {
             <p>Some representative placeholder content for the second slide.</p>
           </div>
         </div> */}
-        {/* <!-- Third item --> */}
-        {/* <div
+            {/* <!-- Third item --> */}
+            {/* <div
           className="relative float-left -mr-[100%] hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
           data-te-carousel-fade
           data-te-carousel-item
@@ -146,10 +144,10 @@ function ImageSlider() {
             <p>Some representative placeholder content for the third slide.</p>
           </div>
         </div> */}
-      </div>
+          </div>
 
-      {/* <!-- Carousel controls - prev item--> */}
-      {/* <button
+          {/* <!-- Carousel controls - prev item--> */}
+          {/* <button
         className="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
         type="button"
         data-te-target="#carouselDarkVariant"
@@ -175,8 +173,8 @@ function ImageSlider() {
           Previous
         </span>
       </button> */}
-      {/* <!-- Carousel controls - next item--> */}
-      {/* <button
+          {/* <!-- Carousel controls - next item--> */}
+          {/* <button
         className="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-black hover:no-underline hover:opacity-90 hover:outline-none focus:text-black focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
         type="button"
         data-te-target="#carouselDarkVariant"
@@ -202,6 +200,10 @@ function ImageSlider() {
           Next
         </span>
       </button> */}
+          {/* </div> */}
+          {/* </div> */}
+        </div>
+      </div>
     </div>
   );
 }

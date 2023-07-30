@@ -16,10 +16,22 @@ import Services from "../components/Services/Services";
 import Blog from "../components/Blog/Blog";
 import NotificationToast from "../components/Notifiction/NotificationToast";
 import Modal from "../components/modal/Modal";
+import { useEffect } from "react";
+import { ApiClientData, AuthenticationClient } from "../api/kifi";
+import Routers from "../Navigation/Routing";
+import { BrowserRouter } from "react-router-dom";
 // import MarsTopNav from "../components/tests/Test";
 
 function App() {
   <link rel="stylesheet" href="./assets/css/style-prefix.css" />;
+
+  useEffect(() => {
+    AuthenticationClient({
+      jsonrpc: "2.0",
+      method: "authenticate",
+      params: { db: "KIFI_LIVE", login: "admin", password: "admin" },
+    });
+  }, []);
 
   return (
     <div className="p-0 m-0">
@@ -44,10 +56,13 @@ function App() {
         <NotificationToast />
         <Modal />
         <main>
-          <Banner />
-          <Category />
-          <Products />
-          <Services />
+          {/* <Banner /> */}
+
+          <Routers />
+
+          {/* <ProductCard /> */}
+
+          {/* <Services /> */}
           <Blog />
         </main>
         <Footer />

@@ -12,7 +12,7 @@ function Products() {
           {/* <!--
           - SIDEBAR
         --> */}
-          <ProductSidebar />
+          {/* <ProductSidebar /> */}
           <div className="product-box">
             {/* <!--
             - PRODUCT MINIMAL

@@ -1,1 +1,4 @@
-export const JSON_PLACEHOLDER = "http://97.74.86.77:8005/web/dataset/call";
+export const JSON_PLACEHOLDER_AUTH =
+  "https://kifionline.in/web/session/authenticate";
+
+export const JSON_PLACEHOLDER = "https://kifionline.in/web/dataset/call";

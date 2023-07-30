@@ -3207,5 +3207,8 @@
       left: 110px;
       max-width: 460px;
     }
+    .header-top-bg {
+      background: var(--eerie-black);
+    }
   
   }
