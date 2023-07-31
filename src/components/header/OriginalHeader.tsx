@@ -16,24 +16,12 @@ import {
   IoPersonOutline,
   IoSearchOutline,
 } from "react-icons/io5";
-import { ApiClientData } from "../../api/kifi";
-const params = "?session_id=f42eed301459fd72ffd438df935968a74d643726";
 function OriginalHeader() {
-  useEffect(() => {
-    ApiClientData(params, {
-      jsonrpc: "2.0",
-      params: {
-        model: "stock.location",
-        method: "get_location",
-        args: [],
-      },
-    });
-  }, []);
   return (
     <div>
       {" "}
       <header>
-        <div className="header-top bg-[#212121]">
+        <div className="header-top  bg-[#212121] sticky  ">
           <div className="container">
             <ul className="header-social-container ">
               <li className="facebook">

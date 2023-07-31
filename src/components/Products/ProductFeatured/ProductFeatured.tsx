@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   IoIosAdd,
   IoIosHeartEmpty,
@@ -8,7 +8,20 @@ import {
   IoIosStarHalf,
   IoIosStarOutline,
 } from "react-icons/io";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import { fetchKifiAsync } from "../../../views/desktop/kifi/kifi.slice";
 function ProductFeatured() {
+  // const dispatch = useAppDispatch();
+  // const kifiStore = useAppSelector((state) => state.kifi);
+  // useEffect(() => {
+  //   dispatch(fetchKifiAsync());
+  // }, []);
+  // console.log(
+  //   kifiStore.data?.result.result.map((data: any) => {
+  //     return data.image_url;
+  //   }),
+  //   "redux"
+  // );
   return (
     <div>
       <div className="product-featured">

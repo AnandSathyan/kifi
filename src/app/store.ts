@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
+import kifiSlice from "../views/desktop/kifi/kifi.slice";
 
 import usersSlice from "../views/users/users.slice";
 
 export const store = configureStore({
   reducer: {
     users: usersSlice,
+    kifi: kifiSlice,
   },
 });
 

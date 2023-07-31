@@ -6,11 +6,16 @@ import Products from "../components/Products/Products";
 const Routers = () => {
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<ImageSlider />} />
-        <Route path="/" element={<Products />} />
-        <Route path="/" element={<Category />} />
+      <ImageSlider />
+      <Category />
+
+      <Routes location={"/products"}>
+        <Route path="/products" element={<Products />} />
+
+        {/* <Route path="/" element={} /> */}
+        <Route path="*" element={<h3>404 Page Not Found</h3>} />
       </Routes>
+
       {/* <Products /> */}
     </div>
   );

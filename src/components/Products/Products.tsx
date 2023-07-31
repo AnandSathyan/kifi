@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { fetchKifiAsync } from "../../views/desktop/kifi/kifi.slice";
 import ProductFeatured from "./ProductFeatured/ProductFeatured";
 import ProductGrid from "./ProductGrid/ProductGrid";
 import ProductMinimal from "./ProductMinimal/ProductMinimal";
 import ProductSidebar from "./ProductSidebar/ProductSidebar";
 
 function Products() {
+  // const dispatch = useAppDispatch();
+  // const kifiStore = useAppSelector((state) => state.kifi);
+  // useEffect(() => {
+  //   dispatch(fetchKifiAsync());
+  // }, []);
+  // console.log("kifiStorekifiStore", kifiStore);
   return (
     <div>
       <div className="product-container">
