@@ -2,7 +2,6 @@ import { ChevronLeft, ChevronRight } from "react-feather";
 import React, { useState } from "react";
 
 export default function Carousel({ slides }: any) {
-  // const slide = { ...slides };
   const [curr, setCurr] = useState(0);
 
   const prev = () =>
@@ -11,11 +10,6 @@ export default function Carousel({ slides }: any) {
   const next = () =>
     setCurr((curr) => (curr === slides?.length - 1 ? 0 : curr + 1));
 
-  console.log(
-    "slides",
-    // slides.map((props: any) => props.props.src)
-    slides.map((slides: any) => slides.url)
-  );
   return (
     <div>
       <div
@@ -23,7 +17,7 @@ export default function Carousel({ slides }: any) {
         style={{ transform: `translateX(-${curr * 100}%)` }}
       >
         {slides.map((s: any) => (
-          <img className="min-w-full h-[32rem]" src={s.url} />
+          <img key={s.id} className="min-w-full h-[32rem]" src={s.url} />
         ))}
       </div>
 

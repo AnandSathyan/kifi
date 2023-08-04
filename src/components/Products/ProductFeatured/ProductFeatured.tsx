@@ -8,9 +8,11 @@ import {
   IoIosStarHalf,
   IoIosStarOutline,
 } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { fetchKifiAsync } from "../../../views/desktop/kifi/kifi.slice";
 function ProductFeatured() {
+  const Navigate = useNavigate();
   // const dispatch = useAppDispatch();
   // const kifiStore = useAppSelector((state) => state.kifi);
   // useEffect(() => {
@@ -70,7 +72,12 @@ function ProductFeatured() {
                   <del>&#8377;200.00</del>
                 </div>
 
-                <button className="add-cart-btn">add to cart</button>
+                <button
+                  className="add-cart-btn"
+                  onClick={() => Navigate("/ProductView")}
+                >
+                  add to cart
+                </button>
 
                 <div className="showcase-status">
                   <div className="wrapper">

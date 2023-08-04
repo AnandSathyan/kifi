@@ -5,7 +5,7 @@ import { fetchKifiAsync } from "../../../views/desktop/kifi/kifi.slice";
 function ProductMinimal() {
   const dispatch = useAppDispatch();
   const kifiStore = useAppSelector((state) => state.kifi);
-  console.log(kifiStore, "kifiStore");
+  // console.log(kifiStore, "kifiStore");
 
   useEffect(() => {
     dispatch(fetchKifiAsync());
