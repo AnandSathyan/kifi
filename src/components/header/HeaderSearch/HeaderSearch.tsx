@@ -5,13 +5,15 @@ import {
   IoPersonOutline,
   IoSearchOutline,
 } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 function HeaderSearch() {
+  const Navigate = useNavigate();
   return (
     <div>
       <div className="header-main">
         <div className="container">
-          <a href="#" className="header-logo">
+          <a href="#" className="header-logo" onClick={() => Navigate("/")}>
             <img
               // src="./assets/images/logo/logo.svg"
               src="http://kifi.zbeanztech.in/frondend/assets/imgs/theme/logo.png"
@@ -36,7 +38,7 @@ function HeaderSearch() {
           </div>
 
           <div className="header-user-actions">
-            <button className="action-btn">
+            <button className="action-btn" onClick={() => Navigate("/Login")}>
               <IoPersonOutline />
               {/* <ion-icon name="person-outline"></ion-icon> */}
             </button>
@@ -47,7 +49,7 @@ function HeaderSearch() {
               <span className="count">0</span>
             </button>
 
-            <button className="action-btn">
+            <button className="action-btn" onClick={() => Navigate("/Cart")}>
               <IoBagHandleOutline />
               {/* <ion-icon name="bag-handle-outline"></ion-icon> */}
               <span className="count">0</span>

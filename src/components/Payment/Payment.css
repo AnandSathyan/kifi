@@ -16,7 +16,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* body {
+body {
   background: rgba(37, 44, 65, 1);
   background: -moz-linear-gradient(
     top,
@@ -62,7 +62,7 @@ html {
     rgba(221, 223, 230, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#252c41', endColorstr='#dddfe6', GradientType=0 );
-} */
+}
 
 .subject {
   font-family: "Playfair Display", serif;
@@ -153,13 +153,14 @@ Checkout
 ---------------------*/
 
 .checkout {
-  width: 670px;
+  max-width: 670px;
   height: 485px;
-  position: absolute;
-  top: 63%;
+  position: relative;
+  top: 0%;
   left: 50%;
   background-color: #dddfe6;
-  overflow: hidden;
+  /* overflow: hidden; */
+  /* margin-top: -15%; */
 
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);

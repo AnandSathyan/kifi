@@ -1,33 +1,37 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./ProductView.css";
+const imgs = document?.querySelectorAll(".img-select a");
+
+const imgBtns = Array.from(imgs);
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+  imgItem.addEventListener("click", (event: Event) => {
+    event.preventDefault();
+    //@ts-ignore
+    imgId = parseInt(imgItem.dataset.id || "1", 10);
+    slideImage();
+  });
+});
+
+function slideImage(): void {
+  const imgShowcase = document?.querySelector(".img-showcase") as HTMLElement;
+  const firstImage = imgShowcase?.querySelector(
+    "img:first-child"
+  ) as HTMLElement | null;
+
+  if (firstImage) {
+    const displayWidth = firstImage.clientWidth;
+    imgShowcase.style.transform = `translateX(${
+      -(imgId - 1) * displayWidth
+    }px)`;
+  }
+}
+
+window.addEventListener("resize", slideImage);
 function ProductView() {
   const Navigate = useNavigate();
-
-  const imgs = document.querySelectorAll(".img-select a");
-  //@ts-ignore
-  const imgBtns: HTMLAnchorElement[] = Array.from(imgs);
-  let imgId = 1;
-
-  imgBtns.forEach((imgItem: HTMLAnchorElement) => {
-    imgItem.addEventListener("click", (event: Event) => {
-      event.preventDefault();
-      imgId = parseInt(imgItem.dataset.id || "1", 10);
-      slideImage();
-    });
-  });
-
-  function slideImage(): void {
-    const displayWidth = (
-      document.querySelector(".img-showcase img:first-child") as HTMLElement
-    ).clientWidth;
-
-    (
-      document.querySelector(".img-showcase") as HTMLElement
-    ).style.transform = `translateX(${-(imgId - 1) * displayWidth}px)`;
-  }
-
-  window.addEventListener("resize", slideImage);
 
   return (
     <div id="product">

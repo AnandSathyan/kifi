@@ -14,17 +14,26 @@ function Payment() {
           <h5>Order #0101</h5>
           <ul className="order-list">
             <li>
-              <img src="http://images.nike.com/is/image/DotCom/PDP_THUMB/JORDAN-ECLIPSE-724010_401_A_PREM.jpg" />
+              <img
+                className="ml-[35px]"
+                src="http://images.nike.com/is/image/DotCom/PDP_THUMB/JORDAN-ECLIPSE-724010_401_A_PREM.jpg"
+              />
               <h4>Jordan Eclipse</h4>
               <h5>$110</h5>
             </li>
             <li>
-              <img src="http://images.nike.com/is/image/DotCom/PDP_THUMB/Nike-Futura-True-2-Adjustable-Hat-584169_451_A.jpg" />
+              <img
+                className="ml-[35px]"
+                src="http://images.nike.com/is/image/DotCom/PDP_THUMB/Nike-Futura-True-2-Adjustable-Hat-584169_451_A.jpg"
+              />
               <h4>Nike Futura True 2 Snapback</h4>
               <h5>$28</h5>
             </li>
             <li>
-              <img src="http://images.nike.com/is/image/DotCom/PDP_THUMB/NIKE-FB-SHOE-BAG-30-BA5101_001_A.jpg" />
+              <img
+                className="ml-[35px]"
+                src="http://images.nike.com/is/image/DotCom/PDP_THUMB/NIKE-FB-SHOE-BAG-30-BA5101_001_A.jpg"
+              />
               <h4>Nike FB Training 3.0</h4>
               <h5>$20</h5>
             </li>
@@ -394,32 +403,6 @@ function Payment() {
           <h2>Your payment was completed.</h2>
           <h2>Thank you!</h2>
         </div>
-      </div>
-
-      <div className="icon-credits">
-        Outlined icons made by{" "}
-        <a href="http://www.freepik.com" title="Freepik">
-          Freepik
-        </a>{" "}
-        &{" "}
-        <a
-          href="http://www.flaticon.com/authors/abhimanyu-rana"
-          title="Abhimanyu Rana"
-        >
-          Abhimanyu Rana
-        </a>{" "}
-        from{" "}
-        <a href="http://www.flaticon.com" title="Flaticon">
-          www.flaticon.com
-        </a>{" "}
-        is licensed by{" "}
-        <a
-          href="http://creativecommons.org/licenses/by/3.0/"
-          title="Creative Commons BY 3.0"
-          target="_blank"
-        >
-          CC 3.0 BY
-        </a>
       </div>
     </div>
   );
