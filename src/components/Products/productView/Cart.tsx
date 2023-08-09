@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const Navigate = useNavigate();
+  // const history = useNavigate();
+  useEffect(() => {
+    Navigate("/Cart");
+  }, []);
 
   return (
     <div>

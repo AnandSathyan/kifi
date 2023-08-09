@@ -9,14 +9,16 @@ import {
   IoIosStarOutline,
 } from "react-icons/io";
 import { IoBagAddOutline, IoEyeOutline, IoRepeat } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 function ProductGrid() {
+  const Navigate = useNavigate();
   return (
     <div>
-      <div className="product-main">
+      <div id="Product-Main" className="product-main">
         <h2 className="title">New Products</h2>
 
-        <div className="product-grid">
+        <div className="product-grid" onClick={() => Navigate("/ProductView")}>
           <div className="showcase">
             <div className="showcase-banner">
               <img

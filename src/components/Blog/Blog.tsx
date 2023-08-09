@@ -3,7 +3,7 @@ import React from "react";
 function Blog() {
   return (
     <div>
-      <div className="blog">
+      <div id="Blog" className="blog">
         <div className="container">
           <div className="blog-container has-scrollbar">
             <div className="blog-card">

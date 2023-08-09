@@ -121,7 +121,7 @@ input::placeholder {
 }
 
 body {
-  background: var(--white);
+  background: var(--white) !important;
 }
 
 /**
@@ -1860,6 +1860,7 @@ footer {
 
   .header-top {
     display: block;
+    position: sticky;
     padding: 10px 0;
     border-bottom: 1px solid var(--cultured);
   }

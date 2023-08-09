@@ -22,7 +22,7 @@ function Category() {
                   <p className="category-item-amount">(53)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>
@@ -44,7 +44,7 @@ function Category() {
                   <p className="category-item-amount">(58)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>
@@ -66,7 +66,7 @@ function Category() {
                   <p className="category-item-amount">(68)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>
@@ -88,7 +88,7 @@ function Category() {
                   <p className="category-item-amount">(84)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>
@@ -110,7 +110,7 @@ function Category() {
                   <p className="category-item-amount">(35)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>
@@ -128,7 +128,7 @@ function Category() {
                   <p className="category-item-amount">(16)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>
@@ -150,7 +150,7 @@ function Category() {
                   <p className="category-item-amount">(27)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>
@@ -172,7 +172,7 @@ function Category() {
                   <p className="category-item-amount">(39)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>
@@ -189,7 +189,7 @@ function Category() {
                   <p className="category-item-amount">(27)</p>
                 </div>
 
-                <a href="#" className="category-btn">
+                <a href="#Product-Main" className="category-btn">
                   Show all
                 </a>
               </div>

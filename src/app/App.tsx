@@ -23,6 +23,7 @@ import { BrowserRouter } from "react-router-dom";
 import Cart from "../components/Products/productView/Cart";
 import TopHeader from "../components/header/TopHeader/TopHeader";
 import HeaderSearch from "../components/header/HeaderSearch/HeaderSearch";
+import ProductFiltered from "../components/Products/productFiltered/ProductFiltered";
 // import { ProductProvider } from "../context/ProductContext";
 // import MarsTopNav from "../components/tests/Test";
 
@@ -40,8 +41,10 @@ function App() {
   return (
     <div className="p-0 m-0">
       <Provider store={store}>
+        <TopHeader />
         <main>
           <Routers />
+          {/* <ProductFiltered /> */}
         </main>
         {/* <ProductView /> */}
         {/* <Cart /> */}

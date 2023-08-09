@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { fetchKifiAsync } from "../../../views/desktop/kifi/kifi.slice";
 
@@ -6,7 +7,7 @@ function ProductMinimal() {
   const dispatch = useAppDispatch();
   const kifiStore = useAppSelector((state) => state.kifi);
   // console.log(kifiStore, "kifiStore");
-
+  const Navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchKifiAsync());
   }, []);
@@ -17,7 +18,10 @@ function ProductMinimal() {
           <h2 className="title">New Arrivals</h2>
 
           <div className="showcase-wrapper has-scrollbar">
-            <div className="showcase-container">
+            <div
+              className="showcase-container"
+              onClick={() => Navigate("/ProductFiltered")}
+            >
               {kifiStore?.data?.result?.result?.map((data: any) => {
                 // console.log("data.image_url", data.image_url);
 
@@ -33,7 +37,7 @@ function ProductMinimal() {
                     </a>
 
                     <div className="showcase-content">
-                      <a href="#">
+                      <a href="#" onClick={() => Navigate("/ProductFiltered")}>
                         <h4 className="showcase-title">
                           Boal ( ആറ്റുവാള ) Curry cut
                         </h4>
@@ -51,7 +55,7 @@ function ProductMinimal() {
                   </div>
                 );
               })}
-              {/* <div className="showcase">
+              <div className="showcase">
                 <a href="#" className="showcase-img-box">
                   <img
                     src="./assets/images/products/tuna-cut.png"
@@ -77,9 +81,9 @@ function ProductMinimal() {
                     <del>&#8377;9.00</del>
                   </div>
                 </div>
-              </div> */}
+              </div>
 
-              {/* <div className="showcase">
+              <div className="showcase">
                 <a href="#" className="showcase-img-box">
                   <img
                     src="./assets/images/products/cutla-cut.png"
@@ -105,9 +109,9 @@ function ProductMinimal() {
                     <del>&#8377;25.00</del>
                   </div>
                 </div>
-              </div> */}
+              </div>
 
-              {/* <div className="showcase">
+              <div className="showcase">
                 <a href="#" className="showcase-img-box">
                   <img
                     src="./assets/images/products/clams-cut.png"
@@ -131,10 +135,13 @@ function ProductMinimal() {
                     <del>&#8377;31.00</del>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
 
-            <div className="showcase-container">
+            <div
+              className="showcase-container"
+              onClick={() => Navigate("/ProductFiltered")}
+            >
               <div className="showcase">
                 <a href="#" className="showcase-img-box">
                   <img
@@ -252,7 +259,10 @@ function ProductMinimal() {
           </div>
         </div>
 
-        <div className="product-showcase">
+        <div
+          className="product-showcase"
+          onClick={() => Navigate("/ProductFiltered")}
+        >
           <h2 className="title">Trending</h2>
 
           <div className="showcase-wrapper has-scrollbar">
@@ -269,7 +279,10 @@ function ProductMinimal() {
                   />
                 </a>
 
-                <div className="showcase-content">
+                <div
+                  className="showcase-content"
+                  onClick={() => Navigate("/ProductFiltered")}
+                >
                   <a href="#">
                     <h4 className="showcase-title">
                       Cutla ( കട്ല ) Bengali cut
@@ -488,7 +501,10 @@ function ProductMinimal() {
           </div>
         </div>
 
-        <div className="product-showcase">
+        <div
+          className="product-showcase"
+          onClick={() => Navigate("/ProductFiltered")}
+        >
           <h2 className="title">Top Rated</h2>
 
           <div className="showcase-wrapper has-scrollbar">

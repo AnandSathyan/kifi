@@ -8,7 +8,9 @@ import {
   IoIosStarHalf,
   IoIosStarOutline,
 } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 function ProductSidebar() {
+  const Navigate = useNavigate();
   return (
     <div>
       <div className="sidebar has-scrollbar min-w-[250px]" data-mobile-menu>
@@ -289,8 +291,19 @@ function ProductSidebar() {
                   />
                 </a>
 
-                <div className="showcase-content">
-                  <a href="#">
+                <div
+                  className="showcase-content"
+                  onClick={() =>
+                    Navigate("/ProductView", {
+                      state: {
+                        name: "Mackerel / അയല",
+                        price: "5.00",
+                        image: "/assets/images/products/Best_seller1.png",
+                      },
+                    })
+                  }
+                >
+                  <a>
                     <h4 className="showcase-title">Mackerel / അയല</h4>
                   </a>
 
@@ -315,8 +328,19 @@ function ProductSidebar() {
                 </div>
               </div>
 
-              <div className="showcase">
-                <a href="#" className="showcase-img-box">
+              <div
+                className="showcase"
+                onClick={() =>
+                  Navigate("/ProductView", {
+                    state: {
+                      name: "Trevally / വറ്റ",
+                      price: "5.00",
+                      image: "./assets/images/products/Best_seller2.png",
+                    },
+                  })
+                }
+              >
+                <a className="showcase-img-box">
                   <img
                     src="./assets/images/products/Best_seller2.png"
                     alt="men's hoodies t-shirt"
@@ -327,7 +351,7 @@ function ProductSidebar() {
                 </a>
 
                 <div className="showcase-content">
-                  <a href="#">
+                  <a>
                     <h4 className="showcase-title">Trevally / വറ്റ</h4>
                   </a>
                   <div className="showcase-rating">
@@ -362,8 +386,19 @@ function ProductSidebar() {
                   />
                 </a>
 
-                <div className="showcase-content">
-                  <a href="#">
+                <div
+                  className="showcase-content"
+                  onClick={() =>
+                    Navigate("/ProductView", {
+                      state: {
+                        name: "Tuna / ചൂര",
+                        price: "5.00",
+                        image: "/assets/images/products/Best_seller3.png",
+                      },
+                    })
+                  }
+                >
+                  <a>
                     <h4 className="showcase-title">Tuna / ചൂര</h4>
                   </a>
                   <div className="showcase-rating">
@@ -398,8 +433,19 @@ function ProductSidebar() {
                   />
                 </a>
 
-                <div className="showcase-content">
-                  <a href="#">
+                <div
+                  className="showcase-content"
+                  onClick={() =>
+                    Navigate("/ProductView", {
+                      state: {
+                        name: "Catla / കട്ല",
+                        price: "5.00",
+                        image: "/assets/images/products/Best_seller4.png",
+                      },
+                    })
+                  }
+                >
+                  <a>
                     <h4 className="showcase-title">Catla / കട്ല</h4>
                   </a>
                   <div className="showcase-rating">

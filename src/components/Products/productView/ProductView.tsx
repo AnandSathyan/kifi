@@ -1,7 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./ProductView.css";
 const imgs = document?.querySelectorAll(".img-select a");
+// const location = useLocation();
+// console.log("location", location);
 
 const imgBtns = Array.from(imgs);
 let imgId = 1;
@@ -32,6 +34,8 @@ function slideImage(): void {
 window.addEventListener("resize", slideImage);
 function ProductView() {
   const Navigate = useNavigate();
+  const location = useLocation();
+  console.log("location", location.state);
 
   return (
     <div id="product">
@@ -42,7 +46,8 @@ function ProductView() {
             <div className="img-display">
               <div className="img-showcase">
                 <img
-                  src="https://c1.wallpaperflare.com/preview/694/824/1019/fish-market-sea-fresh.jpg"
+                  // src="https://c1.wallpaperflare.com/preview/694/824/1019/fish-market-sea-fresh.jpg"
+                  src={location?.state?.image}
                   alt="shoe image"
                 />
                 <img
@@ -96,7 +101,7 @@ function ProductView() {
           </div>
           {/* <!-- productCard right --> */}
           <div className="product-content">
-            <h2 className="product-title">Marine Fish</h2>
+            <h2 className="product-title">{location?.state?.name}</h2>
             <a href="#" className="product-link">
               {/* visit nike store */}
             </a>

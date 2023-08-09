@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Category from "../components/Category/Category";
 import FeaturedCategory from "../components/FeaturedCategory/FeaturedCategory";
 import HeaderOptional from "../components/header/HeaderOptional/HeaderOptional";
@@ -15,7 +15,10 @@ import Products from "../components/Products/Products";
 import Cart from "../components/Products/productView/Cart";
 import ProductSummary from "../components/Products/productView/ProductSummary";
 import ProductView from "../components/Products/productView/ProductView";
+import Services from "../components/Services/Services";
 import SignUp from "../components/SignUp/SignUp";
+import Blog from "../components/Blog/Blog";
+import ProductFiltered from "../components/Products/productFiltered/ProductFiltered";
 // import ProductView from "../components/Products/productView/ProductView";
 // import ProductView from "../components/Products/productView/ProductView";
 // import ProductView from "../components/Products/productView/ProductView";
@@ -31,6 +34,7 @@ const Routers = () => {
               <ImageSlider />
               <Category />
               <Products />
+              <Blog />
             </>
           }
         />
@@ -38,7 +42,6 @@ const Routers = () => {
           path="/ProductView"
           element={
             <>
-              <TopHeader />
               <HeaderSearch />
               <ProductView />
             </>
@@ -48,7 +51,6 @@ const Routers = () => {
           path="/Cart"
           element={
             <>
-              <TopHeader />
               <HeaderSearch />
               <Cart />
             </>
@@ -59,7 +61,6 @@ const Routers = () => {
           path="/Payment"
           element={
             <>
-              <TopHeader />
               {/* <HeaderSearch /> */}
               <Payment />
             </>
@@ -69,7 +70,6 @@ const Routers = () => {
           path="/Login"
           element={
             <>
-              <TopHeader />
               <Login />
             </>
           }
@@ -78,8 +78,24 @@ const Routers = () => {
           path="/Register"
           element={
             <>
-              <TopHeader />
               <SignUp />
+            </>
+          }
+        />
+        {/* <Route
+          path="/Blog"
+          element={
+            <>
+              <Blog />
+            </>
+          }
+        /> */}
+        <Route
+          path="/ProductFiltered"
+          element={
+            <>
+              <HeaderSearch />
+              <ProductFiltered />
             </>
           }
         />

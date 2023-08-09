@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function HeaderSub() {
+  const Navigate = useNavigate();
   return (
     <div>
       <nav className="desktop-navigation-menu">
@@ -172,7 +174,10 @@ function HeaderSub() {
                 Products
               </a>
 
-              <ul className="dropdown-list">
+              <ul
+                onClick={() => Navigate("/ProductFiltered")}
+                className="dropdown-list"
+              >
                 <li className="dropdown-item">
                   <a href="#">Marine Fish</a>
                 </li>
@@ -198,7 +203,7 @@ function HeaderSub() {
 
               <ul className="dropdown-list">
                 <li className="dropdown-item">
-                  <a href="#">Blog</a>
+                  <a href="#Blog">Blog</a>
                 </li>
 
                 <li className="dropdown-item">
