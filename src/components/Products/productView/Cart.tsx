@@ -232,7 +232,7 @@ function Cart() {
               </div>
               <button
                 className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full"
-                onClick={() => Navigate("/Payment", { replace: true })}
+                onClick={() => Navigate("/Login", { replace: true })}
               >
                 Checkout
               </button>

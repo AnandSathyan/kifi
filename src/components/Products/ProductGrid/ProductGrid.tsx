@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
-  IoIosAdd,
+  // IoIosAdd,
   IoIosHeartEmpty,
-  IoIosRemove,
+  // IoIosRemove,
   IoIosRepeat,
   IoIosStar,
   IoIosStarHalf,
@@ -13,13 +13,26 @@ import { useNavigate } from "react-router-dom";
 
 function ProductGrid() {
   const Navigate = useNavigate();
+  // useEffect(() => {
+  //   Navigate("/ProductFiltered");
+  // }, []);
   return (
     <div>
       <div id="Product-Main" className="product-main">
         <h2 className="title">New Products</h2>
 
-        <div className="product-grid" onClick={() => Navigate("/ProductView")}>
-          <div className="showcase">
+        <div className="product-grid">
+          <div
+            className="showcase"
+            onClick={() =>
+              Navigate("/ProductView", {
+                state: {
+                  name: " Gold Fish Cubes (380g to 400g Pack)",
+                  image: "/assets/images/products/Best_seller1.png",
+                },
+              })
+            }
+          >
             <div className="showcase-banner">
               <img
                 src="./assets/images/products/Best_seller1.png"
@@ -60,11 +73,9 @@ function ProductGrid() {
             </div>
 
             <div className="showcase-content">
-              <a href="#" className="showcase-category">
-                Other Fish
-              </a>
+              <a className="showcase-category">Other Fish</a>
 
-              <a href="#">
+              <a>
                 <h3 className="showcase-title">
                   Gold Fish Cubes (380g to 400g Pack)
                 </h3>
@@ -91,7 +102,17 @@ function ProductGrid() {
             </div>
           </div>
 
-          <div className="showcase">
+          <div
+            className="showcase"
+            onClick={() =>
+              Navigate("/ProductView", {
+                state: {
+                  name: "Tuna ( ചൂര ) Cubes (380g to 400g Pack)",
+                  image: "/assets/images/products/Product-after1.png",
+                },
+              })
+            }
+          >
             <div className="showcase-banner">
               <img
                 src="./assets/images/products/Product-after1.png"
@@ -132,12 +153,10 @@ function ProductGrid() {
             </div>
 
             <div className="showcase-content">
-              <a href="#" className="showcase-category">
-                Farmed Fish
-              </a>
+              <a className="showcase-category">Farmed Fish</a>
 
               <h3>
-                <a href="#" className="showcase-title">
+                <a className="showcase-title">
                   Tuna ( ചൂര ) Cubes (380g to 400g Pack)
                 </a>
               </h3>
@@ -163,7 +182,17 @@ function ProductGrid() {
             </div>
           </div>
 
-          <div className="showcase">
+          <div
+            className="showcase"
+            onClick={() =>
+              Navigate("/ProductView", {
+                state: {
+                  name: "Pearl Spot ( കരിമീൻ ) Whole",
+                  image: "/assets/images/products/Product-after3.png",
+                },
+              })
+            }
+          >
             <div className="showcase-banner">
               <img
                 src="./assets/images/products/Product-after3.png"
@@ -202,14 +231,10 @@ function ProductGrid() {
             </div>
 
             <div className="showcase-content">
-              <a href="#" className="showcase-category">
-                Marine Fish
-              </a>
+              <a className="showcase-category">Marine Fish</a>
 
               <h3>
-                <a href="#" className="showcase-title">
-                  Pearl Spot ( കരിമീൻ ) Whole
-                </a>
+                <a className="showcase-title">Pearl Spot ( കരിമീൻ ) Whole</a>
               </h3>
 
               <div className="showcase-rating">
@@ -233,7 +258,17 @@ function ProductGrid() {
             </div>
           </div>
 
-          <div className="showcase">
+          <div
+            className="showcase"
+            onClick={() =>
+              Navigate("/ProductView", {
+                state: {
+                  name: "Pearl Spot ( കരിമീൻ ) Whole",
+                  image: "/assets/images/products/Product-after5.png",
+                },
+              })
+            }
+          >
             <div className="showcase-banner">
               <img
                 src="./assets/images/products/Product-after5.png"
@@ -274,12 +309,10 @@ function ProductGrid() {
             </div>
 
             <div className="showcase-content">
-              <a href="#" className="showcase-category">
-                Farmed Fish
-              </a>
+              <a className="showcase-category">Farmed Fish</a>
 
               <h3>
-                <a href="#" className="showcase-title">
+                <a className="showcase-title">
                   Pearl Spot ( കരിമീൻ ) Whole cleaned
                 </a>
               </h3>

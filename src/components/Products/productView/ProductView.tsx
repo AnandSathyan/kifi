@@ -1,5 +1,6 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import ProductGrid from "../ProductGrid/ProductGrid";
 import "./ProductView.css";
 const imgs = document?.querySelectorAll(".img-select a");
 // const location = useLocation();
@@ -36,9 +37,11 @@ function ProductView() {
   const Navigate = useNavigate();
   const location = useLocation();
   console.log("location", location.state);
-
+  // useEffect(() => {
+  //   Navigate("/ProductView");
+  // }, []);
   return (
-    <div id="product">
+    <div id="product" className="m-10">
       <div className="productCard-wrapper">
         <div className="productCard ">
           {/* <!-- productCard left --> */}
@@ -48,7 +51,7 @@ function ProductView() {
                 <img
                   // src="https://c1.wallpaperflare.com/preview/694/824/1019/fish-market-sea-fresh.jpg"
                   src={location?.state?.image}
-                  alt="shoe image"
+                  alt="Fish image"
                 />
                 <img
                   src="https://ak.picdn.net/offset/photos/5de8082a469b183482a27fcf/medium/offset_883288.jpg"
@@ -101,10 +104,10 @@ function ProductView() {
           </div>
           {/* <!-- productCard right --> */}
           <div className="product-content">
-            <h2 className="product-title">{location?.state?.name}</h2>
-            <a href="#" className="product-link">
-              {/* visit nike store */}
-            </a>
+            <h2 className="product-title">
+              {location?.state?.name ? location?.state?.name : "Marine Fish"}
+            </h2>
+            <a className="product-link">{/* visit nike store */}</a>
             <div className="product-rating">
               <i className="fas fa-star"></i>
               <i className="fas fa-star"></i>
@@ -153,7 +156,7 @@ function ProductView() {
             </div>
 
             <div className="purchase-info flex">
-              <input type="number" min="0" value="1" />
+              <input type="number" min="0" defaultValue="1" />
               <button
                 type="button"
                 className="btn"
@@ -172,25 +175,26 @@ function ProductView() {
 
             <div className="social-links">
               <p>Share At: </p>
-              <a href="#">
+              <a>
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="#">
+              <a>
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="#">
+              <a>
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="#">
+              <a>
                 <i className="fab fa-whatsapp"></i>
               </a>
-              <a href="#">
+              <a>
                 <i className="fab fa-pinterest"></i>
               </a>
             </div>
           </div>
         </div>
       </div>
+      <ProductGrid />
     </div>
   );
 }
