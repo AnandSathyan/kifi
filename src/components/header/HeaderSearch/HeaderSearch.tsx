@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import {
   IoBagHandleOutline,
   IoPersonOutline,
   IoSearchOutline,
 } from "react-icons/io5";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { fetchKifiProductSearch } from "../../../views/desktop/kifi/ProductSearch/ProductSearch.slice";
 
 function HeaderSearch() {
   const Navigate = useNavigate();
+  const dispatch = useDispatch()
+  const [search,setSearch] = useState()
+ 
+  const handleSearch = (data:any) =>{
+    console.log("value from search",search)
+    const params = {
+      search: search,
+      category: "ALL",
+    }
+    //@ts-ignore
+    dispatch(fetchKifiProductSearch(params))
+    // setSearch('')
+  }
+  
+
   return (
     <div>
       <div className="header-main">
@@ -29,9 +46,11 @@ function HeaderSearch() {
               name="search"
               className="search-field"
               placeholder="Enter your product name..."
+              onChange={(e:any)=>setSearch(e.target.value)}
             />
 
-            <button className="search-btn">
+            <button className="search-btn"
+            onClick={(e:any)=>handleSearch(e.target.value)} >
               <IoSearchOutline />
               {/* <ion-icon name="search-outline"></ion-icon> */}
             </button>

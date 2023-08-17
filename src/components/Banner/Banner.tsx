@@ -8,7 +8,7 @@ function Banner() {
           <div className="slider-container has-scrollbar">
             <div className="slider-item">
               <img
-                src="./assets/images/banner-fish.jpeg"
+                src="https://kifi.zbeanztech.in/storage/uploads/banner_FeelNature-1691729317.jpg"
                 alt="women's latest fashion sale"
                 className="banner-img"
               />
@@ -30,7 +30,7 @@ function Banner() {
               </div>
             </div>
 
-            <div className="slider-item">
+            {/* <div className="slider-item">
               <img
                 src="./assets/images/banner-fish1.avif"
                 alt="modern sunglasses"
@@ -50,9 +50,9 @@ function Banner() {
                   Shop now
                 </a>
               </div>
-            </div>
+            </div> */}
 
-            <div className="slider-item">
+            {/* <div className="slider-item">
               <img
                 src="./assets/images/banner-fish5.jpeg"
                 alt="new fashion summer sale"
@@ -72,7 +72,7 @@ function Banner() {
                   Shop now
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -5,16 +5,16 @@ function ImageSlider() {
   const slides: any = [
     {
       id: 1,
-      url: "./assets/images/banner-fish.jpeg",
+      url: "https://kifi.zbeanztech.in/storage/uploads/banner_FeelNature-1691729317.jpg",
     },
     {
       id: 2,
-      url: "./assets/images/banner-fish1.avif",
+      url: "https://kifi.zbeanztech.in/storage/uploads/banner_null-1691742493.jpg",
     },
-    {
-      id: 3,
-      url: "./assets/images/banner-fish5.jpeg",
-    },
+    // {
+    //   id: 3,
+    //   url: "./assets/images/banner-fish5.jpeg",
+    // },
   ];
 
   return (

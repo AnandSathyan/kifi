@@ -1,0 +1,16 @@
+.cross {
+    position: relative;
+    display: inline-block;
+}
+.cross::before, .cross::after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.cross::before {
+    border-bottom: 2px solid hsl(353, 100%, 78%);;
+    /* -webkit-transform: skewY(-10deg);
+    transform: skewY(-10deg); */
+}

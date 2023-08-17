@@ -1,9 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaWindowClose } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import "./LocationModal.css";
 import $ from "jquery";
+import { ApiLocation } from "../../api/kifi";
+;
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../app/hooks";
+
 function LocationModal() {
+  const kifiStore = useAppSelector((state) => state.kifi);
+  // console.log(
+  //   "LocationModal redux response",
+  //   kifiStore.data.data.map((location: any) => {
+  //     return location.location_name;
+  //   })
+  // );
+  const dispatch = useDispatch();
   const [modal, setModal] = useState(true);
   const [dropdown, setDropdown] = useState(false);
   const [dropValue, setDropValue] = useState("");
@@ -18,6 +31,10 @@ function LocationModal() {
   const ModalClose = () => {
     setModal(false);
   };
+  useEffect(() => {
+    // @ts-ignore
+    dispatch(fetchKifiLogin());
+  }, []);
   const HandleDropdown = (e: any) => {
     e.preventDefault();
     setDropdown(!dropdown);
@@ -160,86 +177,26 @@ function LocationModal() {
                       <span className="caret"></span>
                     </>
                   </button>
-                  {dropdown ? (
-                    <ul
-                      className="dropdown-menu"
-                      role="menu"
-                      aria-labelledby="menu1"
-                    >
-                      <li onClick={() => setDropValue("HTML")}>
-                        <a href="#">HTML</a>
-                      </li>
-                      <li onClick={() => setDropValue("CSS")}>
-                        <a href="#">CSS</a>
-                      </li>
-                      <li onClick={() => setDropValue("JavaScript")}>
-                        <a href="#">JavaScript</a>
-                      </li>
-                      <li onClick={() => setDropValue("About Us")}>
-                        <a href="#">About Us</a>
-                      </li>
-                      <li onClick={() => setDropValue("HTML")}>
-                        <a href="#">HTML</a>
-                      </li>
-                      <li onClick={() => setDropValue("CSS")}>
-                        <a href="#">CSS</a>
-                      </li>
-                      <li onClick={() => setDropValue("JavaScript")}>
-                        <a href="#">JavaScript</a>
-                      </li>
-                      <li onClick={() => setDropValue("About Us")}>
-                        <a href="#">About Us</a>
-                      </li>
-                      <li onClick={() => setDropValue("HTML")}>
-                        <a href="#">HTML</a>
-                      </li>
-                      <li onClick={() => setDropValue("CSS")}>
-                        <a href="#">CSS</a>
-                      </li>
-                      <li onClick={() => setDropValue("JavaScript")}>
-                        <a href="#">JavaScript</a>
-                      </li>
-                      <li onClick={() => setDropValue("About Us")}>
-                        <a href="#">About Us</a>
-                      </li>
-                      <li onClick={() => setDropValue("HTML")}>
-                        <a href="#">HTML</a>
-                      </li>
-                      <li onClick={() => setDropValue("CSS")}>
-                        <a href="#">CSS</a>
-                      </li>
-                      <li onClick={() => setDropValue("JavaScript")}>
-                        <a href="#">JavaScript</a>
-                      </li>
-                      <li onClick={() => setDropValue("About Us")}>
-                        <a href="#">About Us</a>
-                      </li>
-                      <li onClick={() => setDropValue("HTML")}>
-                        <a href="#">HTML</a>
-                      </li>
-                      <li onClick={() => setDropValue("CSS")}>
-                        <a href="#">CSS</a>
-                      </li>
-                      <li onClick={() => setDropValue("JavaScript")}>
-                        <a href="#">JavaScript</a>
-                      </li>
-                      <li onClick={() => setDropValue("About Us")}>
-                        <a href="#">About Us</a>
-                      </li>
-                      {/* <li>
-                        <a href="#">HTML</a>
-                      </li>
-                      <li>
-                        <a href="#">CSS</a>
-                      </li>
-                      <li>
-                        <a href="#">JavaScript</a>
-                      </li>
-                      <li>
-                        <a href="#">About Us</a>
-                      </li> */}
-                    </ul>
-                  ) : null}
+                  {dropdown
+                    ? kifiStore?.data?.data?.map((location: any) => {
+                        return (
+                          <ul
+                            className="dropdown-menu"
+                            role="menu"
+                            aria-labelledby="menu1"
+                            key={location.id}
+                          >
+                            <li
+                              onClick={() =>
+                                setDropValue(location.location_name)
+                              }
+                            >
+                              <a href="#">{location.location_name}</a>
+                            </li>
+                          </ul>
+                        );
+                      })
+                    : null}
                 </div>
 
                 <button type="submit" className="btn-newsletter z-30">

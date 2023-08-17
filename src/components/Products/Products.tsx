@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { fetchKifiAsync } from "../../views/desktop/kifi/kifi.slice";
+// import { fetchKifiAsync } from "../../views/desktop/kifi/kifi.slice";
 import ProductFeatured from "./ProductFeatured/ProductFeatured";
 import ProductGrid from "./ProductGrid/ProductGrid";
 import ProductMinimal from "./ProductMinimal/ProductMinimal";

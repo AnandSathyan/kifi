@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+// import { fetchKifiProductCategory, fetchKifiProductSearch } from "../../../views/desktop/kifi/kifi.slice";
+import { fetchKifiProductCategory } from "../../../views/desktop/kifi/Category/Category.slice";
+import { fetchKifiProductSubCategory } from "../../../views/desktop/kifi/Category/SubCategory.slice";
 function HeaderSub() {
   const Navigate = useNavigate();
+  const dispatch = useDispatch();
+  const KifiStore = useSelector((state: any) => state.Category);
+  const KifiStoreSubCategory = useSelector((state:any)=>state.SubCategory)
+  useEffect(() => {
+    //@ts-ignore
+    dispatch(fetchKifiProductCategory());
+     //@ts-ignore
+    dispatch(fetchKifiProductSubCategory())
+  }, []);
+  // const val =KifiStore?.data?.data?.map((data: any, index: any) => {
+  //   return (data?.category)
+  // })
+  console.log("value from header ",KifiStore?.data?.data);
+  const filteredDataMarine = KifiStoreSubCategory?.data?.data?.filter((category_id:any)=>{return (category_id?.category_id == 2 )});
+  const filteredDataShell = KifiStoreSubCategory?.data?.data?.filter((category_id:any)=>{return (category_id?.category_id == 3 )});
+  
+  const filteredDataFarmed = KifiStoreSubCategory?.data?.data?.filter((category_id:any)=>{return (category_id?.category_id == 1 )});
+
+  const shellFishImage = KifiStore?.data?.data?.map((category_id:any)=>{return (category_id)})?.filter((data:any)=>{return(data?.name=="Shell Fish")})?.map((data:any)=>{return(data?.image_url)})
+  const MarineFishImage = KifiStore?.data?.data?.map((category_id:any)=>{return (category_id)})?.filter((data:any)=>{return(data?.name=="Marine Fish")})?.map((data:any)=>{return(data?.image_url)})
+  const FarmedFishImage = KifiStore?.data?.data?.map((category_id:any)=>{return (category_id)})?.filter((data:any)=>{return(data?.name=="Farmed Fish")})?.map((data:any)=>{return(data?.image_url)})
+
+  // console.log(
+  //   "KifiStore header",val?.map((category: any) => {return category?.name}))
+//   console.log("KifiStore?.data?.data[0])",KifiStore?.data?.data?.map((category_id:any)=>{return (category_id)}))
+// console.log("header sub",shellFishImage?.map((data:any)=>{return(data?.image_url)}));
+
   return (
     <div>
       <nav className="desktop-navigation-menu">
@@ -20,44 +50,93 @@ function HeaderSub() {
               </a>
 
               <div className="dropdown-panel">
-                <ul className="dropdown-panel-list">
-                  <li className="menu-title">
-                    <a href="#">Farmed Fish</a>
-                  </li>
+                {/* {KifiStore?.data?.data?.map((category: any) => { */}
+                  {/* return ( */}
+                    <ul  className="dropdown-panel-list">
+                      <li className="menu-title">
+                        <a >
+                          Farmed Fish
+                        {/* {KifiStore?.data?.data[0]?.name ? KifiStore?.data?.data[0]?.name:null} */}
+                        </a>
+                      </li>
+                        {filteredDataFarmed?.map((subCat:any)=>{return(
+                          <li className="panel-list-item">
+                          <a >{subCat?.name}</a>
+                        </li>
+                        )})}
+                      <li className="panel-list-item ">
+                        <a href="#" >
+                          <img
+                          // className="mt-4 pt-8"
+                          style={{height:"80%"}}
+                          src={FarmedFishImage}
+                            // src="./assets/images/Farmed-fish1 (2).jpeg"
+                            alt="Fish collection"
+                            // width="230"
+                            // height="119"
+                          />
+                        </a>
+                      </li>
+                    </ul>
 
-                  <li className="panel-list-item">
-                    <a href="#">Tilapia</a>
-                  </li>
+                    
+                    <ul  className="dropdown-panel-list">
+                      <li className="menu-title">
+                        <a >
+                          Marine Fish
+                        {/* {KifiStore?.data?.data[1]?.name} */}
+                        </a>
+                      </li>
+                        {filteredDataMarine?.map((subCat:any)=>{return(
+                          <li className="panel-list-item">
+                          <a >{subCat?.name}</a>
+                        </li>
+                        )})}
+                      <li className="panel-list-item">
+                        <a href="#">
+                          <img
+                          src={MarineFishImage}
+                            // src="./assets/images/Farmed-fish1 (2).jpeg"
+                            alt="Fish collection"
+                            width="250"
+                            height="119"
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                    
+                    
+                    <ul  className="dropdown-panel-list">
+                      <li className="menu-title">
+                        <a >
+                          Shell Fish
+                        {/* {KifiStore?.data?.data[2]?.name} */}
+                        </a>
+                      </li>
+                        {filteredDataShell?.map((subCat:any)=>{return(
+                          <li className="panel-list-item">
+                          <a >{subCat?.name}</a>
+                        </li>
+                        )})}
+                      <li className="panel-list-item">
+                      
 
-                  <li className="panel-list-item">
-                    <a href="#">Salmon</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">Tuna</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">Carp</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">Catla</a>
-                  </li>
-
-                  <li className="panel-list-item">
-                    <a href="#">
-                      <img
-                        src="./assets/images/Farmed-fish1 (2).jpeg"
-                        alt="headphone collection"
-                        width="250"
-                        height="119"
-                      />
-                    </a>
-                  </li>
-                </ul>
-
-                <ul className="dropdown-panel-list">
+                        <a href="#">
+                          <img
+                          src={shellFishImage}
+                            // src="./assets/images/Farmed-fish1 (2).jpeg"
+                            alt="Fish collection"
+                            width="250"
+                            height="119"
+                          />
+                        </a>
+                       
+                      </li>
+                    </ul>
+                    
+                  {/* ); */}
+                {/* })} */}
+                {/* <ul className="dropdown-panel-list">
                   <li className="menu-title">
                     <a href="#">Marine Fish</a>
                   </li>
@@ -129,8 +208,8 @@ function HeaderSub() {
                       />
                     </a>
                   </li>
-                </ul>
-                <ul className="dropdown-panel-list">
+                </ul> */}
+                {/* <ul className="dropdown-panel-list">
                   <li className="menu-title">
                     <a href="#">Other Fish</a>
                   </li>
@@ -165,7 +244,7 @@ function HeaderSub() {
                       />
                     </a>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </li>
 
@@ -173,27 +252,31 @@ function HeaderSub() {
               <a href="#" className="menu-title">
                 Products
               </a>
-
               <ul
                 onClick={() => Navigate("/ProductFiltered")}
                 className="dropdown-list"
               >
-                <li className="dropdown-item">
-                  <a href="#">Marine Fish</a>
-                </li>
+              {KifiStore?.data?.data?.map((subCat:any)=>{return(
 
-                <li className="dropdown-item">
+                <li key={subCat?.id} className="dropdown-item">
+                  <a href="#">{subCat?.name}</a>
+                </li>
+                )})}
+                </ul>
+                
+                {/* <li className="dropdown-item">
                   <a href="#">Farmed Fish</a>
                 </li>
 
                 <li className="dropdown-item">
                   <a href="#">Shell Fish</a>
-                </li>
+                </li> */}
 
-                <li className="dropdown-item">
+                {/* <li className="dropdown-item">
                   <a href="#">Other Fish</a>
-                </li>
-              </ul>
+                </li> */}
+              {/* </ul> */}
+                
             </li>
 
             <li className="menu-category">

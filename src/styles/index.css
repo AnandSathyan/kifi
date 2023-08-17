@@ -2416,9 +2416,9 @@ footer {
     background: var(--white);
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    padding: 30px;
+    padding: 32px;
     border: 1px solid var(--cultured);
     box-shadow: 0 3px 5px hsla(0, 0%, 0%, 0.1);
     border-radius: var(--border-radius-md);

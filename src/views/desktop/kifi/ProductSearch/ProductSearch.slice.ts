@@ -5,7 +5,7 @@ import {
   ApiProductCategory,
   // ApiProductListing,
   ApiProductSearch,
-} from "../../../api/kifi";
+} from "../../../../api/kifi";
 // import { data } from "../../../models/Kifi";
 const params = {
   jsonrpc: "2.0",
@@ -26,16 +26,20 @@ const params = {
 //   }
 // );
 
-
+// export const fetchKifiLogin = createAsyncThunk("kifi/LoginStatus", async () => {
+//   {
+//     const response = await ApiLocation("");
+//     return response;
+//   }
+// });
 
 export const fetchKifiProductSearch = createAsyncThunk(
   "kifi/Product/search",
-  async () => {
+  async (params) => {
     {
-      const response = await ApiProductSearch("", {
-        search: "Bo",
-        category: "ALL",
-      });
+        // console.log("params redux",params);
+        
+      const response = await ApiProductSearch("", params);
       return response;
     }
   }
@@ -54,7 +58,7 @@ const initialState: KifiState = {
   ApiStatus: "inital",
 };
 
-export const KifiSlice = createSlice({
+export const KifiProductSearchSlice = createSlice({
   name: "Kifi",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
@@ -72,7 +76,16 @@ export const KifiSlice = createSlice({
     //   builder.addCase(fetchKifiAsync.rejected, (state) => {
     //     state.ApiStatus = "error";
     //   });
-  
+    // builder.addCase(fetchKifiLogin.pending, (state) => {
+    //   state.ApiStatus = "loading";
+    // }),
+    //   builder.addCase(fetchKifiLogin.fulfilled, (state: any, { payload }) => {
+    //     state.data = payload;
+    //     state.ApiStatus = "success";
+    //   }),
+    //   builder.addCase(fetchKifiLogin.rejected, (state) => {
+    //     state.ApiStatus = "error";
+    //   });
     // builder.addCase(fetchKifiProductCategory.pending, (state) => {
     //   state.ApiStatus = "loading";
     // }),
@@ -116,4 +129,4 @@ export const KifiSlice = createSlice({
   },
 });
 
-export default KifiSlice.reducer;
+export default KifiProductSearchSlice.reducer;

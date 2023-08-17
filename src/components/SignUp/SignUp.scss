@@ -6,6 +6,7 @@ body {
   font-family: Verdana, Geneva, sans-serif;
   font-size: 14px;
   background: #f2f2f2;
+  width: 100%;
 }
 .clearfix {
   &:after {
@@ -15,6 +16,10 @@ body {
     visibility: hidden;
     height: 0;
   }
+}
+.signup_form{
+  width: 100%;
+
 }
 .form_wrapper {
   background: #fff;

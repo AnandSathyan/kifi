@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
-import { fetchKifiAsync } from "../../../views/desktop/kifi/kifi.slice";
+// import { fetchKifiAsync } from "../../../views/desktop/kifi/kifi.slice";
 
 function ProductMinimal() {
   const dispatch = useAppDispatch();
   const kifiStore = useAppSelector((state) => state.kifi);
   // console.log(kifiStore, "kifiStore");
   const Navigate = useNavigate();
-  useEffect(() => {
-    dispatch(fetchKifiAsync());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchKifiAsync());
+  // }, []);
   return (
     <div>
       <div className="product-minimal">

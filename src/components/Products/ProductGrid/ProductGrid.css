@@ -1,0 +1,17 @@
+.cross {
+    position: relative;
+    /* display: inline-block; */
+}
+.cross::before, .cross::after {
+    /* content: ''; */
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.cross::before {
+    border-bottom: 2px solid hsl(0, 0%, 47%);
+    /* -webkit-transform: skewY(-10deg);
+    transform: skewY(-10deg); */
+}
+

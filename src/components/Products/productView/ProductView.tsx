@@ -1,4 +1,11 @@
 import React, { useEffect } from "react";
+import {
+  IoLogoFacebook,
+  IoLogoInstagram,
+  IoLogoPinterest,
+  IoLogoTwitter,
+  IoLogoWhatsapp,
+} from "react-icons/io5";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import ProductGrid from "../ProductGrid/ProductGrid";
 import "./ProductView.css";
@@ -174,21 +181,26 @@ function ProductView() {
             </div>
 
             <div className="social-links">
-              <p>Share At: </p>
+              {/* <p>Share At: </p> */}
               <a>
-                <i className="fab fa-facebook-f"></i>
+                {/* <i className="fab fa-facebook-f"></i> */}
+                <IoLogoFacebook />
               </a>
               <a>
-                <i className="fab fa-twitter"></i>
+                {/* <i className="fab fa-twitter"></i> */}
+                <IoLogoTwitter />
               </a>
               <a>
-                <i className="fab fa-instagram"></i>
+                {/* <i className="fab fa-instagram"></i> */}
+                <IoLogoInstagram />
               </a>
               <a>
-                <i className="fab fa-whatsapp"></i>
+                {/* <i className="fab fa-whatsapp"></i> */}
+                <IoLogoWhatsapp />
               </a>
               <a>
-                <i className="fab fa-pinterest"></i>
+                {/* <i className="fab fa-pinterest"></i> */}
+                <IoLogoPinterest />
               </a>
             </div>
           </div>

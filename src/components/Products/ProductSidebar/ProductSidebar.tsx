@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
 import {
   IoIosAdd,
   IoIosHeartEmpty,
@@ -10,7 +11,18 @@ import {
 } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 function ProductSidebar() {
+  // const [open,setOpen] = useState(false)
+  const handleAdd = () =>{
+    // setOpen(true)
+    console.log("add ",open);
+    
+  }
   const Navigate = useNavigate();
+  const values = [
+    {title: "Title 1", content: "Lorem ipsum dolor sit amet."},
+    {title: "Title 2", content: "Lorem ipsum dolor sit amet."},
+    {title: "Title 3", content: "Lorem ipsum dolor sit amet."},
+];
   return (
     <div>
       <div className="sidebar has-scrollbar min-w-[250px]" data-mobile-menu>
@@ -39,7 +51,7 @@ function ProductSidebar() {
                 </div>
 
                 <div>
-                  <IoIosAdd className="add-icon" />
+                  <IoIosAdd className="add-icon"  onClick={handleAdd}/>
                   <IoIosRemove className="remove-icon" />
                   {/* <ion-icon name="add-outline" className="add-icon"></ion-icon>
                       <ion-icon
@@ -48,7 +60,7 @@ function ProductSidebar() {
                       ></ion-icon> */}
                 </div>
               </button>
-
+                      {/* {open?
               <ul className="sidebar-submenu-category-list" data-accordion>
                 <li className="sidebar-submenu-category">
                   <a href="#" className="sidebar-submenu-title">
@@ -86,6 +98,29 @@ function ProductSidebar() {
                   </a>
                 </li>
               </ul>
+              :null} */}
+              <Accordion>
+            {values.map((item, index) => (
+                  //@ts-ignore
+                <AccordionItem key={index}>
+                    {({
+                      //@ts-ignore
+                      open}) => (
+                        <>
+                            <AccordionHeader>
+                                <h3 className={`accordion-title ${open ? 'accordion-active' : ''}`}>{item.title}</h3>
+                            </AccordionHeader>
+
+                            <AccordionBody>
+                                <div className="accordion-body">
+                                    {item.content}
+                                </div>
+                            </AccordionBody>
+                        </>
+                    )}
+                </AccordionItem>
+            ))}
+        </Accordion>
             </li>
 
             <li className="sidebar-menu-category">

@@ -16,7 +16,7 @@ import Blog from "../components/Blog/Blog";
 import NotificationToast from "../components/Notifiction/NotificationToast";
 import Modal from "../components/modal/Modal";
 import { useEffect } from "react";
-import { AuthenticationClient } from "../api/kifi";
+// import { AuthenticationClient } from "../api/kifi";
 import Routers from "../Navigation/Routing";
 import { BrowserRouter } from "react-router-dom";
 // import ProductView from "../components/Products/productView/ProductView";
@@ -31,22 +31,22 @@ import LocationModal from "../components/modal/LocationModal";
 function App() {
   <link rel="stylesheet" href="./assets/css/style-prefix.css" />;
 
-  useEffect(() => {
-    AuthenticationClient({
-      jsonrpc: "2.0",
-      method: "authenticate",
-      params: { db: "KIFI_LIVE", login: "admin", password: "admin" },
-    });
-  }, []);
-  fetch("https://fakestoreapi.com/products/1")
-    .then((res) => res.json())
-    .then((json) => console.log("json", json));
+  // useEffect(() => {
+  //   AuthenticationClient({
+  //     jsonrpc: "2.0",
+  //     method: "authenticate",
+  //     params: { db: "KIFI_LIVE", login: "admin", password: "admin" },
+  //   });
+  // }, []);
+  // fetch("https://fakestoreapi.com/products/1")
+  //   .then((res) => res.json())
+  //   .then((json) => console.log("json", json));
 
   return (
     <div className="p-0 m-0">
       <Provider store={store}>
         <TopHeader />
-        <LocationModal />
+        {/* <LocationModal /> */}
         <main>
           <Routers />
           {/* <ProductFiltered /> */}
