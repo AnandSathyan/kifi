@@ -8,7 +8,11 @@ import {
   JSON_PLACEHOLDER_PRODUCT_SUB_CATEGORY,
   JSON_PLACEHOLDER_REGISTER,
   JSON_PLACEHOLDER_LOGIN,
-  JSON_PLACEHOLDER_GET_CART
+  JSON_PLACEHOLDER_GET_CART,
+  JSON_PLACEHOLDER_UPDATE_CART,
+  JSON_PLACEHOLDER_CLEAR_CART,
+  JSON_PLACEHOLDER_ADD_TO_CART,
+  JSON_PLACEHOLDER_DELETE_CART
 } from "../contants";
 import ApiClient from "./client";
 const api = new ApiClient(JSON_PLACEHOLDER_AUTH);
@@ -21,26 +25,35 @@ const apiProductSubCategory = new ApiClient(JSON_PLACEHOLDER_PRODUCT_SUB_CATEGOR
 const apiRegister = new ApiClient(JSON_PLACEHOLDER_REGISTER)
 const apiLogin = new ApiClient(JSON_PLACEHOLDER_LOGIN)
 const apiGetCart = new ApiClient(JSON_PLACEHOLDER_GET_CART)
-// export const AuthenticationClient = async (body: any) => {
-//   return api
-//     .post("", body)
-//     .then((response) => response)
-//     .then((data) => {
-//       data;
-//     })
-//     .catch((err) => {
-//       console.log(err.message);
-//     });
-// };
-// export const ApiClientData = async (header: any, body: any) => {
-//   return apiData
-//     .post(header, body)
-//     .then((response) => response)
-//     .then((data) => data)
-//     .catch((err) => {
-//       console.log(err.message);
-//     });
-// };
+const client = new  ApiClient("https://kifi.zbeanztech.in/api/")
+
+const apiUpdateCart = new ApiClient(JSON_PLACEHOLDER_UPDATE_CART) 
+const apiClearCart = new ApiClient(JSON_PLACEHOLDER_CLEAR_CART)
+const apiDleteCart = new ApiClient(JSON_PLACEHOLDER_DELETE_CART)
+const apiAddToCart = new ApiClient(JSON_PLACEHOLDER_ADD_TO_CART)
+export const getCartItem = async (header:any,body:any) =>{
+  const response = await client.get("get-cart") 
+}
+export const AuthenticationClient = async (body: any) => {
+  return api
+    .post("","", body)
+    .then((response) => response)
+    .then((data) => {
+      data;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+export const ApiClientData = async (header: any, body: any) => {
+  return apiData
+    .post(header, body,"")
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
 
 
 export const ApiLocation = async (body: any) => {
@@ -82,7 +95,7 @@ export const ApiProductListing = async (body:any) => {
 };
 export const ApiProductSearch = async (header: any, body: any) => {
   return apiProductSearch
-    .post(header, body)
+    .post(header, body,"")
     .then((response) => response)
     .then((data) => data)
     .catch((err) => {
@@ -91,23 +104,23 @@ export const ApiProductSearch = async (header: any, body: any) => {
 };
 export const ApiRegister = async (header: any, body: any) => {
   return apiRegister
-    .post(header, body)
+    .post(header, body,"")
     .then((response) => response)
     .then((data) => data)
     .catch((err) => {
       console.log(err.message);
     });
 };
-export const ApiLogin = async (header: any, body: any) => {
+export const ApiLogin = async (body: any) => {
   return apiLogin
-    .post(header, body)
+    .post('', body,'')
     .then((response) => response)
     .then((data) => data)
     .catch((err) => {
       console.log(err.message);
     });
 };
-export const ApiGetCart = async (header: any) => {
+export const ApiGetCart = async (header: any,auth:any) => {
   return apiGetCart
     .get(header)
     .then((response) => response)
@@ -116,3 +129,44 @@ export const ApiGetCart = async (header: any) => {
       console.log(err.message);
     });
 };
+
+export const ApiUpdateCart = async (header: any,body:any,auth:any,) => {
+  return apiUpdateCart
+    .put(header,body,auth)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiClearCart = async (header: any,body:any,auth:any,) => {
+  return apiClearCart
+    .delete(header)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiDeleteCart = async (header: any,body:any,auth:any,) => {
+  return apiDleteCart
+    .delete(header)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiAddToCart = async (header: any,body:any,auth:any,) => {
+  return apiAddToCart
+    .post(header,auth,body)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+

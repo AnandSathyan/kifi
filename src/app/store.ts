@@ -8,6 +8,7 @@ import  KifiProductSearchSlice  from "../views/desktop/kifi/ProductSearch/Produc
 import  KifiRegisterSlice from "../views/desktop/kifi/Register/Register.slice";
 import KificartSlice  from "../views/desktop/kifi/Cart/Cart.slice";
 import usersSlice from "../views/users/users.slice";
+import  KifiCartUpdateSlice from "../views/desktop/kifi/Cart/UpdateCart.slice";
 
 export const store = configureStore({
   reducer: {
@@ -19,7 +20,8 @@ export const store = configureStore({
     Register:KifiRegisterSlice,
     Login:KifiLoginrSlice,
     ProductSearch:KifiProductSearchSlice,
-    GetCart:KificartSlice
+    GetCart:KificartSlice,
+    UpdateCart:KifiCartUpdateSlice
   },
 });
 

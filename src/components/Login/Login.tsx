@@ -18,7 +18,11 @@ function Login() {
   };
   const kifLogin = useSelector((state: any) => state.Login);
   const handleLogin = () => {
+    sessionStorage.setItem("AuthToken", kifLogin?.data?.errormessage?.token);
+  // console.log("kifLoginkifLogin", kifLogin?.data?.errormessage?.token);
+
     //@ts-ignore
+    
     dispatch(fetchKifiLogin(params));
     // Navigate("/Payment ")
     if (kifLogin?.data?.errorcode == 0) {
@@ -32,7 +36,7 @@ function Login() {
     toast.error(kifLogin?.data?.errormessage);
     }
   };
-  // console.log("kifLoginkifLogin", kifLogin?.data?.errorcode);
+  // const data = window.sessionStorage.getItem("AuthToken");
 
   return (
     <div className="LoginContainer min-h-screen flex items-center justify-center">

@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosResponse, AxiosError } from "axios";
 
 class ApiClient {
   private baseURL: string;
@@ -7,9 +7,22 @@ class ApiClient {
     this.baseURL = baseURL;
   }
 
-  public async get<T>(url: string): Promise<T> {
+  public async get<T>(url: string): Promise<T> 
+  
+  {
     try {
-      const response: AxiosResponse<T> = await axios.get<T>(this.baseURL + url);
+      console.log("urlurl",url);
+      
+      const response: AxiosResponse<T> = await axios.get<T>(
+        this.baseURL + url,
+        {
+          headers: {
+            Authorization:"Bearer "+sessionStorage.getItem("AuthToken"), 
+            location_id:2
+          },
+          
+        }
+      );
       return response.data;
     } catch (error) {
       this.handleError(error as AxiosError);
@@ -17,9 +30,21 @@ class ApiClient {
     }
   }
 
-  public async post<T>(url: string, data: any): Promise<T> {
+  public async post<T>(url: string, auth: any, data: any): Promise<T> {
+    console.log("authauthauth",data);
+    
     try {
-      const response: AxiosResponse<T> = await axios.post<T>(this.baseURL + url, data);
+      const response: AxiosResponse<T> = await axios.post<T>(
+        this.baseURL + url,
+        auth,
+        {
+          
+          headers: {
+            Authorization: "Bearer "+sessionStorage.getItem("AuthToken"),
+            location_id:2
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       this.handleError(error as AxiosError);
@@ -27,9 +52,18 @@ class ApiClient {
     }
   }
 
-  public async put<T>(url: string, data: any): Promise<T> {
+  public async put<T>(url: string,auth: any, data: any): Promise<T> {
     try {
-      const response: AxiosResponse<T> = await axios.put<T>(this.baseURL + url, data);
+      const response: AxiosResponse<T> = await axios.put<T>(
+        this.baseURL + url,
+        data,
+        {
+          headers: {
+            Authorization:"Bearer "+ sessionStorage.getItem("AuthToken"),
+            location_id: 2,
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       this.handleError(error as AxiosError);
@@ -39,7 +73,15 @@ class ApiClient {
 
   public async delete<T>(url: string): Promise<T> {
     try {
-      const response: AxiosResponse<T> = await axios.delete<T>(this.baseURL + url);
+      const response: AxiosResponse<T> = await axios.delete<T>(
+        this.baseURL + url,
+        {
+          headers: {
+            Authorization:"Bearer "+ sessionStorage.getItem("AuthToken"),
+            location_id: 2,
+          },
+        }
+      );
       return response.data;
     } catch (error) {
       this.handleError(error as AxiosError);
@@ -49,11 +91,11 @@ class ApiClient {
 
   private handleError(error: AxiosError): void {
     if (error.response) {
-      console.error('Request failed with response:', error.response.data);
+      console.error("Request failed with response:", error.response.data);
     } else if (error.request) {
-      console.error('Request failed:', error.request);
+      console.error("Request failed:", error.request);
     } else {
-      console.error('Error:', error.message);
+      console.error("Error:", error.message);
     }
   }
 }

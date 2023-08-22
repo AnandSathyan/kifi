@@ -1,53 +1,54 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { ApiLogin } from "../../../../api/kifi";
-// const params = {
-//   name: "test",
-//   mobile: "9999999998",
-//   email: "test@gmail.com",
-//   password: "test123",
-//   confirm_password: "test123",
-// };
-export const fetchKifiLogin = createAsyncThunk("Login/All", async (params) => {
+import { ApiUpdateCart } from "../../../../api/kifi";
+
+export const fetchKifiCartUpdate = createAsyncThunk("Update/Cart", async (param:any) => {
+  // console.log("redux cart update",param?.token);
+  // console.log("redux cart update id",id);
+
+  
   {
-    const response = await ApiLogin(params);
+    const response = await ApiUpdateCart(
+    param?.id, 
+    param?.token
+   , param?.data);
     return response;
   }
 });
 
-interface KifiLoginState {
+interface KifiCartUpdateState {
   data: any | void;
   ApiStatus: "inital" | "loading" | "success" | "error";
 }
 
 // Define the initial state using that type
-const initialState: KifiLoginState = {
+const initialState: KifiCartUpdateState = {
   data: [],
   ApiStatus: "inital",
 };
 
-export const KifiLoginrSlice = createSlice({
-  name: "Register",
+export const KifiCartUpdateSlice = createSlice({
+  name: "CartUpdate",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
 
-    builder.addCase(fetchKifiLogin.pending, (state) => {
+    builder.addCase(fetchKifiCartUpdate.pending, (state) => {
       state.ApiStatus = "loading";
     }),
       builder.addCase(
-        fetchKifiLogin.fulfilled,
+        fetchKifiCartUpdate.fulfilled,
         (state: any, { payload }) => {
           state.data = payload;
           state.ApiStatus = "success";
         }
       ),
-      builder.addCase(fetchKifiLogin.rejected, (state) => {
+      builder.addCase(fetchKifiCartUpdate.rejected, (state) => {
         state.ApiStatus = "error";
       });
   },
 });
 
-export default KifiLoginrSlice.reducer;
+export default KifiCartUpdateSlice.reducer;

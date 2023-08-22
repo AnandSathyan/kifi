@@ -37,16 +37,17 @@ const SignUp = () => {
     confirm_password: confirmPassword,
   };
   const handleRegister = (e: any) => {
-    // if (
-    //   name !== undefined &&
-    //   mobile !== undefined &&
-    //   email !== undefined &&
-    //   password !== undefined &&
-    //   confirmPassword !== undefined
-    // ){
+    e.preventDefault()
+    if (
+      name !== undefined &&
+      mobile !== undefined &&
+      email !== undefined &&
+      password !== undefined &&
+      confirmPassword !== undefined
+    ){
       //@ts-ignore
       dispatch(fetchKifiRegister(params));
-    // }
+    }
 
     if (KifiStore?.data?.errorcode == 0) {
       toast.success(KifiStore?.data?.data);

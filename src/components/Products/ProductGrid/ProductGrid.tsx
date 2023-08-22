@@ -13,24 +13,53 @@ import { IoBagAddOutline, IoEyeOutline, IoRepeat } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // import { fetchKifiProductCategory } from "../../../views/desktop/kifi/kifi.slice";
-import { fetchKifiProductListing } from "../../../views/desktop/kifi/productListing/Product.slice";
+import { fetchKifiProductListing,fetchKifiProductSearch } from "../../../views/desktop/kifi/productListing/Product.slice";
+import { fetchKifiCartAdd } from "../../../views/desktop/kifi/Cart/AddToCart.slice";
 
-function ProductGrid() {
+function ProductGrid(props:any) {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const KifiStore= useSelector((state: any) => state.Product);
   useEffect(() => {
-
+ 
     //@ts-ignore
     dispatch(fetchKifiProductListing())
-  }, []);
+
+    
+  }, [!props?.search]);
   console.log(
-    "KifiStore from product",
-    KifiStore?.data?.data?.map((category: any) => {
-      return category?.thumbnail_url;
-    })
+    "KifiStore from product",KifiStore?.data?.data
+   
   );
 
+  const handleAddToCart = (data:any,e:any) =>{
+    console.log("data cart add",data);
+    
+    e.preventDefault()
+    const val = {
+      data: 
+        {
+          "product_id" : data?.id,
+          "quantity" : 1
+      }
+      ,
+      id: data?.id,
+      token: data,
+    };
+    //@ts-ignore
+    dispatch(fetchKifiCartAdd(
+      val
+    ))
+    Navigate('/Cart')
+  }
+useEffect(()=>{
+const params = {
+      search: props?.search,
+      category: "ALL",
+    }
+    // @ts-ignore
+    dispatch(fetchKifiProductSearch(params))
+},[props?.search])
   return (
     <div>
       <div id="Product-Main" className="product-main">
@@ -42,14 +71,14 @@ function ProductGrid() {
               <div
                 key={category.id}
                 className="showcase"
-                onClick={() =>
-                  Navigate("/ProductView", {
-                    state: {
-                      name: category.name,
-                      image: category.thumbnail_url,
-                    },
-                  })
-                }
+                // onClick={() =>
+                //   Navigate("/ProductView", {
+                //     state: {
+                //       name: category.name,
+                //       image: category.thumbnail_url,
+                //     },
+                //   })
+                // }
               >
                 <div className="showcase-banner h-[200px]">
                   <img
@@ -85,7 +114,9 @@ function ProductGrid() {
                       {/* <ion-icon name="repeat-outline"></ion-icon> */}
                     </button>
 
-                    <button className="btn-action">
+                    <button className="btn-action"
+                    onClick={(e:any)=>handleAddToCart(category,e)}
+                    >
                       <IoBagAddOutline />
                       {/* <ion-icon name="bag-add-outline"></ion-icon> */}
                     </button>

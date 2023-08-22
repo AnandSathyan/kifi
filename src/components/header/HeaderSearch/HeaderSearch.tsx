@@ -15,13 +15,18 @@ function HeaderSearch() {
   const [search,setSearch] = useState()
  
   const handleSearch = (data:any) =>{
-    console.log("value from search",search)
-    const params = {
-      search: search,
-      category: "ALL",
-    }
+    // console.log("value from search",search)
+    // const params = {
+    //   search: search,
+    //   category: "ALL",
+    // }
+    Navigate('/ProductFiltered',{
+      state: {
+       search:search
+      }})
+
     //@ts-ignore
-    dispatch(fetchKifiProductSearch(params))
+    // dispatch(fetchKifiProductSearch(params))
     // setSearch('')
   }
   

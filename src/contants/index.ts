@@ -19,3 +19,11 @@ export const JSON_PLACEHOLDER_REGISTER = "https://kifi.zbeanztech.in/api/registe
 export const JSON_PLACEHOLDER_LOGIN = "https://kifi.zbeanztech.in/api/login";
 
 export const JSON_PLACEHOLDER_GET_CART = "https://kifi.zbeanztech.in/api/get-cart";
+
+export const JSON_PLACEHOLDER_UPDATE_CART = "https://kifi.zbeanztech.in/api/update-cart/";
+
+export const JSON_PLACEHOLDER_CLEAR_CART = "https://kifi.zbeanztech.in/api/clear-cart";
+
+export const JSON_PLACEHOLDER_ADD_TO_CART = "https://kifi.zbeanztech.in/api/add-to-cart";
+
+export const JSON_PLACEHOLDER_DELETE_CART = "https://kifi.zbeanztech.in/api/delete-cart/"

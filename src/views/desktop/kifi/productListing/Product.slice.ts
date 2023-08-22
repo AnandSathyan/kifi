@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ApiProductListing, ApiProductSearch } from "../../../../api/kifi";
+import { ProductInterface } from "../../../../models/product";
 
 export const fetchKifiProductListing = createAsyncThunk(
   "Product/All",
@@ -22,13 +23,13 @@ export const fetchKifiProductSearch = createAsyncThunk(
   }
 );
 interface KifiProductState {
-  data: any | void;
+  data: ProductInterface | undefined;
   ApiStatus: "inital" | "loading" | "success" | "error";
 }
 
 // Define the initial state using that type
 const initialState: KifiProductState = {
-  data: [],
+  data: undefined,
   ApiStatus: "inital",
 };
 
@@ -45,8 +46,8 @@ export const KifiProductSlice = createSlice({
     }),
       builder.addCase(
         fetchKifiProductListing.fulfilled,
-        (state, { payload }) => {
-          state.data = payload;
+        (state, action ) => {
+          state.data = action.payload as ProductInterface;
           state.ApiStatus = "success";
         }
       ),

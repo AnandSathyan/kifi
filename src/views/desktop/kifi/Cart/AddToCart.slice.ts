@@ -1,53 +1,56 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { ApiLogin } from "../../../../api/kifi";
-// const params = {
-//   name: "test",
-//   mobile: "9999999998",
-//   email: "test@gmail.com",
-//   password: "test123",
-//   confirm_password: "test123",
-// };
-export const fetchKifiLogin = createAsyncThunk("Login/All", async (params) => {
+import { ApiAddToCart } from "../../../../api/kifi";
+
+export const fetchKifiCartAdd = createAsyncThunk("AddTo/Cart", async (param:any) => {
+//   console.log("redux cart update",param?.data);
+  // console.log("redux cart update id",id);
+
+  
   {
-    const response = await ApiLogin(params);
+    const response = await ApiAddToCart(
+    " ",
+         
+    param?.token,
+    param?.data
+   );
     return response;
   }
 });
 
-interface KifiLoginState {
+interface KifiCartAddState {
   data: any | void;
   ApiStatus: "inital" | "loading" | "success" | "error";
 }
 
 // Define the initial state using that type
-const initialState: KifiLoginState = {
+const initialState: KifiCartAddState = {
   data: [],
   ApiStatus: "inital",
 };
 
-export const KifiLoginrSlice = createSlice({
-  name: "Register",
+export const KifiCartAddSlice = createSlice({
+  name: "CartAdd",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
 
-    builder.addCase(fetchKifiLogin.pending, (state) => {
+    builder.addCase(fetchKifiCartAdd.pending, (state) => {
       state.ApiStatus = "loading";
     }),
       builder.addCase(
-        fetchKifiLogin.fulfilled,
+        fetchKifiCartAdd.fulfilled,
         (state: any, { payload }) => {
           state.data = payload;
           state.ApiStatus = "success";
         }
       ),
-      builder.addCase(fetchKifiLogin.rejected, (state) => {
+      builder.addCase(fetchKifiCartAdd.rejected, (state) => {
         state.ApiStatus = "error";
       });
   },
 });
 
-export default KifiLoginrSlice.reducer;
+export default KifiCartAddSlice.reducer;

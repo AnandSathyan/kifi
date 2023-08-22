@@ -8,9 +8,9 @@ import { ApiGetCart } from "../../../../api/kifi";
 //   password: "test123",
 //   confirm_password: "test123",
 // };
-export const fetchKifiCart = createAsyncThunk("get/Cart", async (params) => {
+export const fetchKifiCart = createAsyncThunk("get/Cart", async (param) => {
   {
-    const response = await ApiGetCart( params);
+    const response = await ApiGetCart(" ",param);
     return response;
   }
 });
@@ -49,5 +49,4 @@ export const KificartSlice = createSlice({
       });
   },
 });
-
 export default KificartSlice.reducer;
