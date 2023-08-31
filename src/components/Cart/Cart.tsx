@@ -1,96 +1,90 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useAppDispatch } from "../../../app/hooks";
-import { fetchKifiCart } from "../../../views/desktop/kifi/Cart/Cart.slice";
-import { fetchKifiCartUpdate } from "../../../views/desktop/kifi/Cart/UpdateCart.slice";
-import { fetchKifiCartClear } from "../../../views/desktop/kifi/Cart/ClearCart.slice";
-import { fetchKifiCartDelete } from "../../../views/desktop/kifi/Cart/DeleteCart.slice";
+import { useAppDispatch } from "../../app/hooks";
+import { fetchKifiCart } from "../../views/desktop/kifi/Cart/Cart.slice";
+import { fetchKifiCartUpdate } from "../../views/desktop/kifi/Cart/UpdateCart.slice";
+import { fetchKifiCartClear } from "../../views/desktop/kifi/Cart/ClearCart.slice";
+import { fetchKifiCartDelete } from "../../views/desktop/kifi/Cart/DeleteCart.slice";
+import Loader from "../Loader/Loader";
 
 function Cart() {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
-  // const history = useNavigate();
-  // useEffect(() => {
-  //   Navigate("/Cart");
-  // }, []);
-  // useEffect(()=>{
   const CartStore = useSelector((state: any) => state.GetCart);
-  console.log(
-    "CartStore",
-    CartStore?.data?.data?.carts.map((data: any) => data.id)
-  );
+
   const data = sessionStorage.getItem("AuthToken");
 
-  // })
+  // const quantity = CartStore?.data?.data?.carts.map(
+  //   (data: any) => data?.product?.price_list?.sale_price
+  // );
   useEffect(() => {
     //@ts-ignore
     dispatch(fetchKifiCart(data));
   }, []);
-  // const val = {qty:{
-  //   qty:"2"
-  // },
-  // id:"78"
-  // }}
-  const handleCartDelete = async(data:any) => {
+
+  const handleCartDelete = async (data: any) => {
     const val = {
       data: {
-        qty: data?.qty
-      },
-      id: data?.id,
-      token: data,
-    }
-    //@ts-ignore
-    await dispatch(fetchKifiCartDelete(val))
-    //@ts-ignore
-   await dispatch(fetchKifiCart(data));
-  };
-
-console.log("AuthToken data",data);
-
-  const handleCartAdd = async(data: any) => {
-    const val = {
-      data: {
-        qty: data?.qty+1,
+        qty: data?.qty,
       },
       id: data?.id,
       token: data,
     };
     //@ts-ignore
-   await dispatch(fetchKifiCartUpdate(val));
- 
+    await dispatch(fetchKifiCartDelete(val));
     //@ts-ignore
-   await dispatch(fetchKifiCart(data));
-
+    await dispatch(fetchKifiCart(data));
   };
-  const handleCartDecr = async(data: any) =>{
-   console.log("data?.qty",data?.qty)
+  const handleClearCart = async (data: any) => {
+    //@ts-ignore
+    await dispatch(fetchKifiCartClear());
+    //@ts-ignore
+    await dispatch(fetchKifiCart(data));
+  };
+  // console.log("AuthToken data", data);
+
+  const handleCartAdd = async (data: any) => {
+    // console.log("cart data",data);
+    
     const val = {
       data: {
-        qty: data?.qty-1,
+        qty: data?.qty + 1,
       },
       id: data?.id,
       token: data,
     };
-    if(data?.qty == 1){
+    //@ts-ignore
+    await dispatch(fetchKifiCartUpdate(val));
+
+    //@ts-ignore
+    await dispatch(fetchKifiCart(data));
+  };
+  const handleCartDecr = async (data: any) => {
+    console.log("data?.qty", data?.qty);
+    const val = {
+      data: {
+        qty: data?.qty - 1,
+      },
+      id: data?.id,
+      token: data,
+    };
+    if (data?.qty == 1) {
       //@ts-ignore
-    //  await dispatch(fetchKifiCartClear(val))
-    await dispatch(fetchKifiCartDelete(val))
+      await dispatch(fetchKifiCartDelete(val));
+    } else {
+      //@ts-ignore
+      await dispatch(fetchKifiCartUpdate(val));
     }
-    else{
-  //@ts-ignore
-  await dispatch(fetchKifiCartUpdate(val));
-    }
-  
-    //@ts-ignore
-   await dispatch(fetchKifiCart(data));
-  }
-  const location = useLocation();
 
-  // console.log("cart details", CartStore?.data?.data?.subTotal);
+    //@ts-ignore
+    await dispatch(fetchKifiCart(data));
+  };
+  const location = useLocation();
   return (
     <div>
-      <div className="container mx-auto mt-10">
+      {/* <Loader/> */}
+      <div className="container mx-auto mt-10 LoadBackground">
         <div className="flex shadow-md my-10">
           <div className="w-3/4 bg-white px-10 py-10">
             <div className="flex justify-between border-b pb-8">
@@ -102,13 +96,13 @@ console.log("AuthToken data",data);
               <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
                 Product Details
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">
                 Quantity
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">
                 Price
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 ">
                 Total
               </h3>
             </div>
@@ -132,15 +126,17 @@ console.log("AuthToken data",data);
                         <span className="text-red-500 text-xs">
                           {data?.product?.description}
                         </span>
-                        <a className="font-semibold hover:text-red-500 text-gray-500 text-xs"
-                        onClick={()=>handleCartDelete(data)}>
+                        <a
+                          className="font-semibold hover:text-red-500 text-gray-500 text-xs"
+                          onClick={() => handleCartDelete(data)}
+                        >
                           Remove
                         </a>
                       </div>
                     </div>
                     <div className="flex justify-center w-1/5">
                       <svg
-                        className="fill-current text-gray-600 w-3"
+                        className="btn-cart fill-current text-[#FF8F9C] w-3 "
                         viewBox="0 0 448 512"
                         onClick={() => handleCartDecr(data)}
                       >
@@ -154,7 +150,7 @@ console.log("AuthToken data",data);
                       />
 
                       <svg
-                        className="fill-current text-gray-600 w-3"
+                        className="btn-cart fill-current text-[#FF8F9C] w-3 "
                         viewBox="0 0 448 512"
                         onClick={() => handleCartAdd(data)}
                       >
@@ -163,29 +159,39 @@ console.log("AuthToken data",data);
                     </div>
 
                     <span className="text-center w-1/5 font-semibold text-sm">
-                      {parseFloat(data?.product.price_list?.sale_price).toFixed(
+                    &#8377;{parseFloat(data?.product.price_list?.sale_price).toFixed(
                         2
                       )}
                     </span>
-                    <span className="text-center w-1/5 font-semibold text-sm"></span>
-                    {parseFloat(data?.product.price_list?.mrp).toFixed(2)}
+                    <span className="text-center w-1/5 font-semibold text-sm">
+                    &#8377;{data?.product.price_list?.sale_price * data?.qty}
+                    </span>
                   </div>
                 </>
               );
             })}
-            <a
-              href="#"
-              onClick={() => Navigate("/")}
-              className="flex font-semibold text-indigo-600 text-sm mt-10"
-            >
-              <svg
-                className="fill-current mr-2 text-indigo-600 w-4"
-                viewBox="0 0 448 512"
+            <div className="flex justify-between">
+              <a
+                href="#"
+                onClick={() => Navigate("/")}
+                className="flex font-semibold text-indigo-600 text-sm mt-10"
               >
-                <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
-              </svg>
-              Continue Shopping
-            </a>
+                <svg
+                  className="fill-current mr-2 text-indigo-600 w-4"
+                  viewBox="0 0 448 512"
+                >
+                  <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
+                </svg>
+                Continue Shopping
+              </a>
+              <a
+                href="#"
+                onClick={() => handleClearCart(data)}
+                className="flex font-semibold text-indigo-600 text-sm mt-10"
+              >
+                Clear Cart
+              </a>
+            </div>
           </div>
 
           <div id="summary" className="w-1/4 px-8 py-10">
@@ -193,8 +199,6 @@ console.log("AuthToken data",data);
               Order Summary
             </h1>
             <div className="flex justify-between mt-10 mb-5">
-              {/* <span className="font-semibold text-sm uppercase">Items 3</span>
-              <span className="font-semibold text-sm">590$</span> */}
             </div>
             <div>
               <label className="font-medium inline-block mb-3 text-sm uppercase">
@@ -221,7 +225,7 @@ console.log("AuthToken data",data);
             <div className="border-t mt-8">
               <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                 <span>Total cost</span>
-                <span>{CartStore?.data?.data?.subTotal}</span>
+                <span>&#8377;{CartStore?.data?.data?.subTotal}</span>
               </div>
               <button
                 className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full"

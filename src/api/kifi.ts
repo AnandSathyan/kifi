@@ -12,7 +12,12 @@ import {
   JSON_PLACEHOLDER_UPDATE_CART,
   JSON_PLACEHOLDER_CLEAR_CART,
   JSON_PLACEHOLDER_ADD_TO_CART,
-  JSON_PLACEHOLDER_DELETE_CART
+  JSON_PLACEHOLDER_DELETE_CART,
+  JSON_PLACEHOLDER_GET_WISHLIST,
+  JSON_PLACEHOLDER_ADD_TO_WISHLIST,
+  JSON_PLACEHOLDER_DELETE_WISHLIST,
+  JSON_PLACEHOLDER_GET_USER_PROFILE,
+  JSON_PLACEHOLDER_UPDATE_USER_PROFILE
 } from "../contants";
 import ApiClient from "./client";
 const api = new ApiClient(JSON_PLACEHOLDER_AUTH);
@@ -31,6 +36,11 @@ const apiUpdateCart = new ApiClient(JSON_PLACEHOLDER_UPDATE_CART)
 const apiClearCart = new ApiClient(JSON_PLACEHOLDER_CLEAR_CART)
 const apiDleteCart = new ApiClient(JSON_PLACEHOLDER_DELETE_CART)
 const apiAddToCart = new ApiClient(JSON_PLACEHOLDER_ADD_TO_CART)
+const apiGetWishList = new ApiClient(JSON_PLACEHOLDER_GET_WISHLIST)
+const apiAddToWishList = new ApiClient(JSON_PLACEHOLDER_ADD_TO_WISHLIST)
+const apiDeleteWishList = new ApiClient(JSON_PLACEHOLDER_DELETE_WISHLIST)
+const apiGetUserProfile = new ApiClient(JSON_PLACEHOLDER_GET_USER_PROFILE)
+const apiUpdateUserProfile = new ApiClient(JSON_PLACEHOLDER_UPDATE_USER_PROFILE)
 export const getCartItem = async (header:any,body:any) =>{
   const response = await client.get("get-cart") 
 }
@@ -170,3 +180,52 @@ export const ApiAddToCart = async (header: any,body:any,auth:any,) => {
     });
 };
 
+export const ApiGetWishList = async (header: any,auth:any) => {
+  return apiGetWishList
+    .get(header)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiAddToWishList = async (header: any,body:any) => {
+  return apiAddToWishList
+    .post(header,body,"")
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiDeleteWishList = async (header: any,body:any,auth:any,) => {
+  return apiDeleteWishList
+    .delete(header)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiGetUserProfile = async (header: any,auth:any) => {
+  return apiGetUserProfile
+    .get(header)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiUpdateUserProfile = async (header: any,auth:any) => {
+  return apiUpdateUserProfile
+    .post(header,auth,"")
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};

@@ -1,55 +1,48 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { ApiAddToCart } from "../../../../api/kifi";
+import { ApiAddToWishList } from "../../../../api/kifi";
 
-export const fetchKifiCartAdd = createAsyncThunk("AddTo/Cart", async (param:any) => {
-  console.log("redux cart update",param?.data);
-  // console.log("redux cart update id",id);
-
-  
+export const fetchKifiAddToWishList = createAsyncThunk("AddTo/WishList", async (param:any) => {
+    console.log("param from redux",param?.data);
+    
   {
-    const response = await ApiAddToCart(
-    " ",    
-    param?.token,
-    param?.data
-   );
+    const response = await ApiAddToWishList("",param?.data);
     return response;
   }
 });
 
-interface KifiCartAddState {
+interface KifiAddToWishListState {
   data: any | void;
   ApiStatus: "inital" | "loading" | "success" | "error";
 }
 
 // Define the initial state using that type
-const initialState: KifiCartAddState = {
+const initialState: KifiAddToWishListState = {
   data: [],
   ApiStatus: "inital",
 };
 
-export const KifiCartAddSlice = createSlice({
-  name: "CartAdd",
+export const KifiAddToWishListSlice = createSlice({
+  name: "AddToWishList",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
 
-    builder.addCase(fetchKifiCartAdd.pending, (state) => {
+    builder.addCase(fetchKifiAddToWishList.pending, (state) => {
       state.ApiStatus = "loading";
     }),
       builder.addCase(
-        fetchKifiCartAdd.fulfilled,
+        fetchKifiAddToWishList.fulfilled,
         (state: any, { payload }) => {
           state.data = payload;
           state.ApiStatus = "success";
         }
       ),
-      builder.addCase(fetchKifiCartAdd.rejected, (state) => {
+      builder.addCase(fetchKifiAddToWishList.rejected, (state) => {
         state.ApiStatus = "error";
       });
   },
 });
-
-export default KifiCartAddSlice.reducer;
+export default KifiAddToWishListSlice.reducer;

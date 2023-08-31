@@ -1,55 +1,48 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { ApiAddToCart } from "../../../../api/kifi";
+import { ApiDeleteWishList } from "../../../../api/kifi";
 
-export const fetchKifiCartAdd = createAsyncThunk("AddTo/Cart", async (param:any) => {
-  console.log("redux cart update",param?.data);
-  // console.log("redux cart update id",id);
-
-  
+export const fetchKifiDeleteWishList = createAsyncThunk("Delete/WishList", async (param:any) => {
+    console.log("param?.idparam?.id",param?.data?.id);
+    
   {
-    const response = await ApiAddToCart(
-    " ",    
-    param?.token,
-    param?.data
-   );
+    const response = await ApiDeleteWishList(param?.data?.id,"","");
     return response;
   }
 });
 
-interface KifiCartAddState {
+interface KifiDeleteWishListState {
   data: any | void;
   ApiStatus: "inital" | "loading" | "success" | "error";
 }
 
 // Define the initial state using that type
-const initialState: KifiCartAddState = {
+const initialState: KifiDeleteWishListState = {
   data: [],
   ApiStatus: "inital",
 };
 
-export const KifiCartAddSlice = createSlice({
-  name: "CartAdd",
+export const KifiDeleteWishListSlice = createSlice({
+  name: "DeleteWishList",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
 
-    builder.addCase(fetchKifiCartAdd.pending, (state) => {
+    builder.addCase(fetchKifiDeleteWishList.pending, (state) => {
       state.ApiStatus = "loading";
     }),
       builder.addCase(
-        fetchKifiCartAdd.fulfilled,
+        fetchKifiDeleteWishList.fulfilled,
         (state: any, { payload }) => {
           state.data = payload;
           state.ApiStatus = "success";
         }
       ),
-      builder.addCase(fetchKifiCartAdd.rejected, (state) => {
+      builder.addCase(fetchKifiDeleteWishList.rejected, (state) => {
         state.ApiStatus = "error";
       });
   },
 });
-
-export default KifiCartAddSlice.reducer;
+export default KifiDeleteWishListSlice.reducer;

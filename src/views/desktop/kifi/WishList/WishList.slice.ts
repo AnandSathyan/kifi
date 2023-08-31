@@ -1,55 +1,46 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { ApiAddToCart } from "../../../../api/kifi";
+import { ApiGetWishList } from "../../../../api/kifi";
 
-export const fetchKifiCartAdd = createAsyncThunk("AddTo/Cart", async (param:any) => {
-  console.log("redux cart update",param?.data);
-  // console.log("redux cart update id",id);
-
-  
+export const fetchKifiWishList = createAsyncThunk("get/WishList", async (param) => {
   {
-    const response = await ApiAddToCart(
-    " ",    
-    param?.token,
-    param?.data
-   );
+    const response = await ApiGetWishList(" ",param);
     return response;
   }
 });
 
-interface KifiCartAddState {
+interface KifiGetWishListState {
   data: any | void;
   ApiStatus: "inital" | "loading" | "success" | "error";
 }
 
 // Define the initial state using that type
-const initialState: KifiCartAddState = {
+const initialState: KifiGetWishListState = {
   data: [],
   ApiStatus: "inital",
 };
 
-export const KifiCartAddSlice = createSlice({
-  name: "CartAdd",
+export const KifiGetWishListSlice = createSlice({
+  name: "WishList",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
 
-    builder.addCase(fetchKifiCartAdd.pending, (state) => {
+    builder.addCase(fetchKifiWishList.pending, (state) => {
       state.ApiStatus = "loading";
     }),
       builder.addCase(
-        fetchKifiCartAdd.fulfilled,
+        fetchKifiWishList.fulfilled,
         (state: any, { payload }) => {
           state.data = payload;
           state.ApiStatus = "success";
         }
       ),
-      builder.addCase(fetchKifiCartAdd.rejected, (state) => {
+      builder.addCase(fetchKifiWishList.rejected, (state) => {
         state.ApiStatus = "error";
       });
   },
 });
-
-export default KifiCartAddSlice.reducer;
+export default KifiGetWishListSlice.reducer;

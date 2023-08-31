@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchKifiLogin } from "../../views/desktop/kifi/Login/Login.slice";
@@ -36,7 +36,12 @@ function Login() {
     toast.error(kifLogin?.data?.errormessage);
     }
   };
-  // const data = window.sessionStorage.getItem("AuthToken");
+  // const LoginUser = sessionStorage.getItem("AuthToken")
+
+  // useEffect(()=>{
+  //   LoginUser
+  // },[])
+  const data = window.sessionStorage.getItem("AuthToken");
 
   return (
     <div className="LoginContainer min-h-screen flex items-center justify-center">

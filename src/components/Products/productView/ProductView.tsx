@@ -6,7 +6,10 @@ import {
   IoLogoTwitter,
   IoLogoWhatsapp,
 } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { fetchKifiCartAdd } from "../../../views/desktop/kifi/Cart/AddToCart.slice";
+import { fetchKifiCart } from "../../../views/desktop/kifi/Cart/Cart.slice";
 import ProductGrid from "../ProductGrid/ProductGrid";
 import "./ProductView.css";
 const imgs = document?.querySelectorAll(".img-select a");
@@ -43,7 +46,26 @@ window.addEventListener("resize", slideImage);
 function ProductView() {
   const Navigate = useNavigate();
   const location = useLocation();
-  console.log("location", location.state);
+  const dispatch = useDispatch()
+  // console.log("location data in product", location.state);
+const CartStore = useSelector((state:any)=>state.GetWishList)
+// console.log("CartStore",CartStore?.data?.data?.id);
+
+  const handleCart =async(data:any)=>{
+    console.log("cart product data",data?.id);
+    console.log("cart product location",location?.state);
+
+    
+    const val = {
+      data: {
+        "product_id":data?.id ? data?.id:location?.state?.id,
+        "quantity":1
+      },
+    };
+    Navigate("/Cart")
+   //@ts-ignore
+   await dispatch(fetchKifiCartAdd(val));
+  }
   // useEffect(() => {
   //   Navigate("/ProductView");
   // }, []);
@@ -57,7 +79,8 @@ function ProductView() {
               <div className="img-showcase">
                 <img
                   // src="https://c1.wallpaperflare.com/preview/694/824/1019/fish-market-sea-fresh.jpg"
-                  src={location?.state?.image}
+                  src={location?.state?.image?location?.state?.image:
+                    location?.state?.product?.thumbnail_url}
                   alt="Fish image"
                 />
                 <img
@@ -112,7 +135,7 @@ function ProductView() {
           {/* <!-- productCard right --> */}
           <div className="product-content">
             <h2 className="product-title">
-              {location?.state?.name ? location?.state?.name : "Marine Fish"}
+              {location?.state?.name ? location?.state?.product?.name : "Marine Fish"}
             </h2>
             <a className="product-link">{/* visit nike store */}</a>
             <div className="product-rating">
@@ -125,11 +148,11 @@ function ProductView() {
             </div>
 
             <div className="product-price">
-              <p className="last-price">
+              {/* <p className="last-price">
                 Old Price: <span>$257.00</span>
-              </p>
+              </p> */}
               <p className="new-price">
-                New Price: <span>$249.00 (5%)</span>
+                 Price: <span>&#8377;{location?.state?.product?.price_list?.mrp} (5%)</span>
               </p>
             </div>
 
@@ -167,7 +190,7 @@ function ProductView() {
               <button
                 type="button"
                 className="btn"
-                onClick={() => Navigate("/Cart")}
+                onClick={() =>handleCart(location?.state)}
               >
                 Add to Cart <i className="fas fa-shopping-cart"></i>
               </button>

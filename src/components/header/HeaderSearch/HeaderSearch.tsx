@@ -30,7 +30,17 @@ function HeaderSearch() {
     // setSearch('')
   }
   
+const isLogin = sessionStorage.getItem("AuthToken")
 
+const handleLogin = ()=>{
+  if(isLogin){
+    Navigate('/Profile')
+  }
+  else{
+    Navigate("/Login")
+
+  }
+}
   return (
     <div>
       <div className="header-main">
@@ -62,12 +72,12 @@ function HeaderSearch() {
           </div>
 
           <div className="header-user-actions">
-            <button className="action-btn" onClick={() => Navigate("/Login")}>
+            <button className="action-btn" onClick={() => handleLogin()}>
               <IoPersonOutline />
               {/* <ion-icon name="person-outline"></ion-icon> */}
             </button>
 
-            <button className="action-btn">
+            <button className="action-btn" onClick={()=> Navigate('/WishList')}>
               <IoIosHeartEmpty />
               {/* <ion-icon name="heart-outline"></ion-icon> */}
               <span className="count">0</span>

@@ -2284,6 +2284,39 @@ footer {
     gap: 5px;
   }
 
+  /** 
+  * #CART PAGE
+  **/
+
+  .btn-cart{
+    background-color: #fff;
+    border: 1px solid hsl(353, 100%, 78%);;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7px;
+  }
+  .btn-cart:hover{
+    background-color: hsl(353, 100%, 78%);
+  }
+  .btn-cart--icon{
+    height: 24px;
+    width: 24px;
+    stroke: hsl(353, 100%, 78%);
+  }
+  .btn-cart--icon:hover{
+    stroke: #fff;
+  }
+
+/** 
+  * #END CART PAGE
+  **/
+
+
   .header-social-container .social-link {
     padding: 5px;
     /* background: hsl(142, 39%, 66%); */
@@ -2488,7 +2521,23 @@ footer {
     transition: var(--transition-timing);
     z-index: 5;
   }
-
+.dropdown-list-profile{
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  width: 200px;
+  background: var(--white);
+  padding: 20px 0;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--cultured);
+  box-shadow: 0 3px 5px hsla(0, 0%, 0%, 0.1);
+  transform: translateY(50px);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+  transition: var(--transition-timing);
+  z-index: 5;
+}
   .desktop-menu-category-list .menu-category:hover > .dropdown-list {
     transform: translateY(0);
     opacity: 1;
@@ -2836,5 +2885,22 @@ footer {
   }
   .header-top-bg {
     background: var(--eerie-black);
+  }
+  /* .LoadBackground{
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    filter: blur(4px);
+  } */
+  .loader{
+    position: fixed;
+    margin-top: 25%;
+    left: 50px;
+    top: 50px;
+    width: 100%;
+    height: 100%;
+    z-index: 999 !important;   
+    background: url('//upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Phi_fenomeni.gif/50px-Phi_fenomeni.gif') 50% 50% no-repeat rgb(249,249,249); 
   }
 }

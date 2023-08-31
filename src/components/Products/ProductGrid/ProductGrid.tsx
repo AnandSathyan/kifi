@@ -5,7 +5,7 @@ import {
   // IoIosRemove,
   IoIosRepeat,
   IoIosStar,
-  IoIosStarHalf,
+  // IoIosStarHalf,
   IoIosStarOutline,
 } from "react-icons/io";
 import './ProductGrid.css'
@@ -15,11 +15,12 @@ import { useNavigate } from "react-router-dom";
 // import { fetchKifiProductCategory } from "../../../views/desktop/kifi/kifi.slice";
 import { fetchKifiProductListing,fetchKifiProductSearch } from "../../../views/desktop/kifi/productListing/Product.slice";
 import { fetchKifiCartAdd } from "../../../views/desktop/kifi/Cart/AddToCart.slice";
+import { fetchKifiAddToWishList } from "../../../views/desktop/kifi/WishList/AddToWishList.slice";
 
 function ProductGrid(props:any) {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  const KifiStore= useSelector((state: any) => state.Product);
+  const KifiStore= useSelector((state: any) => state.ProductSearch);
   useEffect(() => {
  
     //@ts-ignore
@@ -31,11 +32,20 @@ function ProductGrid(props:any) {
     "KifiStore from product",KifiStore?.data?.data
    
   );
-
+  const handleAddToWishList = async(data:any,e:any) =>{
+    const val = {
+      data: 
+        {
+          "product_id" : data?.id,
+      }}
+    e. stopPropagation()
+    //@ts-ignore
+    await dispatch(fetchKifiAddToWishList(val))
+    Navigate('/WishList')
+  }
   const handleAddToCart = (data:any,e:any) =>{
-    console.log("data cart add",data);
     
-    e.preventDefault()
+    e. stopPropagation()
     const val = {
       data: 
         {
@@ -52,6 +62,18 @@ function ProductGrid(props:any) {
     ))
     Navigate('/Cart')
   }
+  const handleProductView = (category:any) =>{
+    console.log("qwertgh",category);
+
+    Navigate("/ProductView", {
+          state: {
+            name: category.name,
+            image: category.thumbnail_url,
+            id:category.id
+          },
+        })
+      }
+  
 useEffect(()=>{
 const params = {
       search: props?.search,
@@ -59,7 +81,7 @@ const params = {
     }
     // @ts-ignore
     dispatch(fetchKifiProductSearch(params))
-},[props?.search])
+},[props])
   return (
     <div>
       <div id="Product-Main" className="product-main">
@@ -79,6 +101,7 @@ const params = {
                 //     },
                 //   })
                 // }
+                onClick={()=>handleProductView(category)}
               >
                 <div className="showcase-banner h-[200px]">
                   <img
@@ -99,7 +122,10 @@ const params = {
                   <p className="showcase-badge">15%</p>
 
                   <div className="showcase-actions">
-                    <button className="btn-action">
+                    <button className="btn-action"
+                    onClick={(e:any)=>handleAddToWishList(category,e)}
+                    >
+
                       <IoIosHeartEmpty />
                       {/* <ion-icon name="heart-outline"></ion-icon> */}
                     </button>
@@ -153,7 +179,4 @@ const params = {
 }
 
 export default ProductGrid;
-function apiProductListing(arg0: string) {
-  throw new Error("Function not implemented.");
-}
 

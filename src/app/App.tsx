@@ -20,11 +20,13 @@ import { useEffect } from "react";
 import Routers from "../Navigation/Routing";
 import { BrowserRouter } from "react-router-dom";
 // import ProductView from "../components/Products/productView/ProductView";
-import Cart from "../components/Products/productView/Cart";
+import Cart from "../components/Cart/Cart";
 import TopHeader from "../components/header/TopHeader/TopHeader";
 import HeaderSearch from "../components/header/HeaderSearch/HeaderSearch";
 import ProductFiltered from "../components/Products/productFiltered/ProductFiltered";
 import LocationModal from "../components/modal/LocationModal";
+import PaginatedItems from "../components/DemoPage";
+import EditProfile from "../components/Profile/EditProfile";
 // import { ProductProvider } from "../context/ProductContext";
 // import MarsTopNav from "../components/tests/Test";
 
@@ -43,13 +45,13 @@ function App() {
   //   .then((json) => console.log("json", json));
 
   return (
-    <div className="p-0 m-0">
+    <div className="p-0 m-0 h-screen w-screen pb-10">
       <Provider store={store}>
         <TopHeader />
         {/* <LocationModal /> */}
         <main>
           <Routers />
-          {/* <ProductFiltered /> */}
+{/* <EditProfile/> */}
         </main>
         {/* <ProductView /> */}
         {/* <Cart /> */}

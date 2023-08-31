@@ -12,13 +12,17 @@ import Login from "../components/Login/Login";
 import Payment from "../components/Payment/Payment";
 import ProductFeatured from "../components/Products/ProductFeatured/ProductFeatured";
 import Products from "../components/Products/Products";
-import Cart from "../components/Products/productView/Cart";
+import Cart from "../components/Cart/Cart";
 import ProductSummary from "../components/Products/productView/ProductSummary";
 import ProductView from "../components/Products/productView/ProductView";
 import Services from "../components/Services/Services";
 import SignUp from "../components/SignUp/SignUp";
 import Blog from "../components/Blog/Blog";
 import ProductFiltered from "../components/Products/productFiltered/ProductFiltered";
+import MyProfile from "../components/Profile/MyProfile";
+import WishList from "../components/WishList/WishList";
+import DemoPage from "../components/DemoPage";
+import EditProfile from "../components/Profile/EditProfile";
 // import ProductView from "../components/Products/productView/ProductView";
 // import ProductView from "../components/Products/productView/ProductView";
 // import ProductView from "../components/Products/productView/ProductView";
@@ -56,6 +60,16 @@ const Routers = () => {
             </>
           }
         />
+        <Route
+          path="/WishList"
+          element={
+            <>
+              <HeaderSearch />
+              <WishList />
+              
+            </>
+          }
+        />
         <Route path="/Alternate" element={<ProductSummary />} />
         <Route
           path="/Payment"
@@ -66,6 +80,7 @@ const Routers = () => {
             </>
           }
         />
+        
         <Route
           path="/Login"
           element={
@@ -79,6 +94,22 @@ const Routers = () => {
           element={
             <>
               <SignUp />
+            </>
+          }
+        />
+         <Route
+          path="/Profile"
+          element={
+            <>
+              <MyProfile />
+            </>
+          }
+        />
+         <Route
+          path="/EditProfile"
+          element={
+            <>
+              <EditProfile />
             </>
           }
         />

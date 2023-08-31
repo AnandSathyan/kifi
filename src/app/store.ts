@@ -9,6 +9,11 @@ import  KifiRegisterSlice from "../views/desktop/kifi/Register/Register.slice";
 import KificartSlice  from "../views/desktop/kifi/Cart/Cart.slice";
 import usersSlice from "../views/users/users.slice";
 import  KifiCartUpdateSlice from "../views/desktop/kifi/Cart/UpdateCart.slice";
+import  KifiGetWishListSlice  from "../views/desktop/kifi/WishList/WishList.slice";
+import  KifiAddToWishListSlice  from "../views/desktop/kifi/WishList/AddToWishList.slice";
+import KifiCartAddSlice  from "../views/desktop/kifi/Cart/AddToCart.slice";
+import  KifiGetUserProfileSlice  from "../views/desktop/kifi/User/GetUserProfile.slice";
+import  KifiUpdateUserProfileSlice  from "../views/desktop/kifi/User/UpdateUserProfile.slice";
 
 export const store = configureStore({
   reducer: {
@@ -21,7 +26,12 @@ export const store = configureStore({
     Login:KifiLoginrSlice,
     ProductSearch:KifiProductSearchSlice,
     GetCart:KificartSlice,
-    UpdateCart:KifiCartUpdateSlice
+    AddToCart:KifiCartAddSlice,
+    UpdateCart:KifiCartUpdateSlice,
+    GetWishList:KifiGetWishListSlice,
+    AddToWishList:KifiAddToWishListSlice,
+    GetUserProfile:KifiGetUserProfileSlice,
+    UpdateUserProfile:KifiUpdateUserProfileSlice
   },
 });
 
