@@ -25,7 +25,7 @@ function Products() {
             {/* <!--
             - PRODUCT MINIMAL
           --> */}
-            <ProductMinimal />
+            {/* <ProductMinimal /> */}
             {/* 
             <!--
             - PRODUCT FEATURED

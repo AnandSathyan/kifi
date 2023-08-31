@@ -14,7 +14,7 @@ function WishList() {
     dispatch(fetchKifiWishList());
   }, []);
   const WishListStore = useSelector((state: any) => state.GetWishList);
-  console.log("WishListStore", WishListStore?.data);
+  console.log("WishListStore", WishListStore?.data?.data?.length);
   const handleDeleteWishList = async(data:any,e:any) =>{
     const val = {
         data: 

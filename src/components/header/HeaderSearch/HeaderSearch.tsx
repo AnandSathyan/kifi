@@ -5,7 +5,7 @@ import {
   IoPersonOutline,
   IoSearchOutline,
 } from "react-icons/io5";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchKifiProductSearch } from "../../../views/desktop/kifi/ProductSearch/ProductSearch.slice";
 
@@ -13,7 +13,12 @@ function HeaderSearch() {
   const Navigate = useNavigate();
   const dispatch = useDispatch()
   const [search,setSearch] = useState()
- 
+
+  const WishListStore = useSelector((state: any) => state.GetWishList);
+  const CartStore = useSelector((state: any) => state.GetCart);
+
+  console.log("WishListStoreheader", CartStore?.data?.data?.carts?.length);
+
   const handleSearch = (data:any) =>{
     // console.log("value from search",search)
     // const params = {
@@ -80,13 +85,15 @@ const handleLogin = ()=>{
             <button className="action-btn" onClick={()=> Navigate('/WishList')}>
               <IoIosHeartEmpty />
               {/* <ion-icon name="heart-outline"></ion-icon> */}
-              <span className="count">0</span>
+              <span className="count">
+                {WishListStore?.data?.data?.length}
+              </span>
             </button>
 
             <button className="action-btn" onClick={() => Navigate("/Cart")}>
               <IoBagHandleOutline />
               {/* <ion-icon name="bag-handle-outline"></ion-icon> */}
-              <span className="count">0</span>
+              <span className="count">{CartStore?.data?.data?.carts?.length}</span>
             </button>
           </div>
         </div>
