@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import {
   IoBagHandleOutline,
@@ -7,7 +7,9 @@ import {
 } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { fetchKifiCart } from "../../../views/desktop/kifi/Cart/Cart.slice";
 import { fetchKifiProductSearch } from "../../../views/desktop/kifi/ProductSearch/ProductSearch.slice";
+import { fetchKifiWishList } from "../../../views/desktop/kifi/WishList/WishList.slice";
 
 function HeaderSearch() {
   const Navigate = useNavigate();
@@ -18,9 +20,30 @@ function HeaderSearch() {
   const CartStore = useSelector((state: any) => state.GetCart);
 
   console.log("WishListStoreheader", CartStore?.data?.data?.carts?.length);
+// useEffect(()=>{
+// document.addEventListener('keydown',detectKeyPress, true)
+// },[])
+// const detectKeyPress = (e:any) =>{
+//   console.log("clicked key:",e.key);
+//   // if(e.key=="Enter"){
+//   //   // Navigate('/ProductFiltered',{
+//   //   //   state: {
+//   //   //    search:search
+//   //   //   }})
+//   // }
+  
+// }
 
+useEffect(()=>{
+  //@ts-ignore
+  dispatch(fetchKifiCart())
+    //@ts-ignore
+  dispatch(fetchKifiWishList())
+
+},[])
   const handleSearch = (data:any) =>{
-    // console.log("value from search",search)
+    console.log("value from search",data)
+
     // const params = {
     //   search: search,
     //   category: "ALL",
@@ -70,7 +93,8 @@ const handleLogin = ()=>{
             />
 
             <button className="search-btn"
-            onClick={(e:any)=>handleSearch(e.target.value)} >
+            onKeyDown={(e:any)=>handleSearch(e)}
+            onClick={(e:any)=>handleSearch(e)} >
               <IoSearchOutline />
               {/* <ion-icon name="search-outline"></ion-icon> */}
             </button>
@@ -86,14 +110,14 @@ const handleLogin = ()=>{
               <IoIosHeartEmpty />
               {/* <ion-icon name="heart-outline"></ion-icon> */}
               <span className="count">
-                {WishListStore?.data?.data?.length}
+                {WishListStore?.data?.data?.length?WishListStore?.data?.data?.length:0}
               </span>
             </button>
 
             <button className="action-btn" onClick={() => Navigate("/Cart")}>
               <IoBagHandleOutline />
               {/* <ion-icon name="bag-handle-outline"></ion-icon> */}
-              <span className="count">{CartStore?.data?.data?.carts?.length}</span>
+              <span className="count">{CartStore?.data?.data?.carts?.length?CartStore?.data?.data?.carts?.length:0}</span>
             </button>
           </div>
         </div>

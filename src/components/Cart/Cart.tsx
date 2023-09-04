@@ -18,10 +18,16 @@ function Cart() {
   // const quantity = CartStore?.data?.data?.carts.map(
   //   (data: any) => data?.product?.price_list?.sale_price
   // );
+
   useEffect(() => {
     //@ts-ignore
     dispatch(fetchKifiCart(data));
+    if(!data){
+      Navigate("/Login")
+    }
+
   }, []);
+console.log("data-123",data);
 
   const handleCartDelete = async (data: any) => {
     const val = {

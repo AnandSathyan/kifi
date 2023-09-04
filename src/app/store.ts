@@ -14,6 +14,8 @@ import  KifiAddToWishListSlice  from "../views/desktop/kifi/WishList/AddToWishLi
 import KifiCartAddSlice  from "../views/desktop/kifi/Cart/AddToCart.slice";
 import  KifiGetUserProfileSlice  from "../views/desktop/kifi/User/GetUserProfile.slice";
 import  KifiUpdateUserProfileSlice  from "../views/desktop/kifi/User/UpdateUserProfile.slice";
+import  KifiChangePasswordSlice  from "../views/desktop/kifi/User/ChangePassword.slice";
+import  KifiMyOrderSlice  from "../views/desktop/kifi/Order/getOrder.slice";
 
 export const store = configureStore({
   reducer: {
@@ -31,7 +33,10 @@ export const store = configureStore({
     GetWishList:KifiGetWishListSlice,
     AddToWishList:KifiAddToWishListSlice,
     GetUserProfile:KifiGetUserProfileSlice,
-    UpdateUserProfile:KifiUpdateUserProfileSlice
+    UpdateUserProfile:KifiUpdateUserProfileSlice,
+    ChangePassword:KifiChangePasswordSlice,
+    MyOrder:KifiMyOrderSlice,
+
   },
 });
 

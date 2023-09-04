@@ -3,9 +3,12 @@ import { IoSettingsOutline } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { fetchKifiGetUserProfile } from '../../views/desktop/kifi/User/GetUserProfile.slice'
+import PasswordModal from '../Modals/PasswordModal'
+
 import './MyProfile.scss'
 function MyProfile() {
     const [flag,setFlag] = useState(false)
+    const [password,setPassword] = useState(false)
     const Navigate = useNavigate()
     const ProfileName = useSelector((state:any)=>state.GetUserProfile)
     console.log("ProfileName",ProfileName?.data?.data);
@@ -22,22 +25,30 @@ dispatch(fetchKifiGetUserProfile())
     const handleProfileModal = () =>{
       setFlag(!flag)
     }
-    const handleEdit = (e:any) =>{
+    const handleEdit = () =>{
       console.log("hiiii");
-      
-      e.preventDefault()
       Navigate('/EditProfile')
     }
+
+    const handleChangePassword = () =>{
+      setPassword(!password)
+    }
+
   return (
     <div>
-      <div className=''>
+      <div>
         {flag?
- <ul className="dropdown-list-profile">
+ <ul className="absolute top-28 right-6 w-[200px] shadow-2xl rounded-lg p-3">
 
-    <li className='dropdown-item'>
-      <a className='text-center'
-      onClick={(e:any)=>handleEdit(e)}
+    <li className=''
+      
+      >
+      <a className='text-center p-3'
+      onClick={handleEdit}
       >Edit Profile</a>
+       {!password?<a className='text-center p-3'
+       onClick={handleChangePassword}
+      >Change Password</a>:null}
    
     </li>
 </ul>:null}
@@ -46,8 +57,8 @@ dispatch(fetchKifiGetUserProfile())
   <IoSettingsOutline size={45} className="absolute top-[60px] right-[16px] menu-title" onClick={handleProfileModal}/>
 <div className="profile-card">
   <div className="cover"></div>
+  { !password?
   <div className="profile">
-
     <div className="pic"></div>
     <div className="above-fold">
       <div className="name">
@@ -76,37 +87,13 @@ dispatch(fetchKifiGetUserProfile())
         <i className="fas fa-arrow-down"></i>
       </div>
     </div>
-    <div className="below-fold">
-      <div className="about">
-        <h3>
-          About
-        </h3>
-        <p>
-          Hi, I am Douwe de Vries, 28 summers young and I am passionate about User Experiences, Design, Front-end development and game development. Like to talk about any of these things? Shoot me a message!
-        </p>
-      </div>
-      <div className="row stats">
-        <div className="stat">
-          <label>Posts</label>
-          <div className="num">
-            956
-          </div>
-        </div>
-        <div className="stat">
-          <label>Followers</label>
-          <div className="num">
-            312
-          </div>
-        </div>
-        <div className="stat">
-          <label>Following</label>
-          <div className="num">
-            104
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
+:
+<>
+<PasswordModal handleChangePassword={handleChangePassword}/>
+</>
+}
+
 </div>
     </div>
   )

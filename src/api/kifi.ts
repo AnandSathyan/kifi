@@ -17,7 +17,14 @@ import {
   JSON_PLACEHOLDER_ADD_TO_WISHLIST,
   JSON_PLACEHOLDER_DELETE_WISHLIST,
   JSON_PLACEHOLDER_GET_USER_PROFILE,
-  JSON_PLACEHOLDER_UPDATE_USER_PROFILE
+  JSON_PLACEHOLDER_UPDATE_USER_PROFILE,
+  CHANGE_PASSWORD,
+  MY_ORDER,
+  MY_ORDER_DETAILS,
+  GET_ADDRESS,
+  ADD_ADDRESS_AND_UPDATE,
+  DELETE_ADDRESS,
+  CREATE_ORDER
 } from "../contants";
 import ApiClient from "./client";
 const api = new ApiClient(JSON_PLACEHOLDER_AUTH);
@@ -31,7 +38,6 @@ const apiRegister = new ApiClient(JSON_PLACEHOLDER_REGISTER)
 const apiLogin = new ApiClient(JSON_PLACEHOLDER_LOGIN)
 const apiGetCart = new ApiClient(JSON_PLACEHOLDER_GET_CART)
 const client = new  ApiClient("https://kifi.zbeanztech.in/api/")
-
 const apiUpdateCart = new ApiClient(JSON_PLACEHOLDER_UPDATE_CART) 
 const apiClearCart = new ApiClient(JSON_PLACEHOLDER_CLEAR_CART)
 const apiDleteCart = new ApiClient(JSON_PLACEHOLDER_DELETE_CART)
@@ -41,6 +47,15 @@ const apiAddToWishList = new ApiClient(JSON_PLACEHOLDER_ADD_TO_WISHLIST)
 const apiDeleteWishList = new ApiClient(JSON_PLACEHOLDER_DELETE_WISHLIST)
 const apiGetUserProfile = new ApiClient(JSON_PLACEHOLDER_GET_USER_PROFILE)
 const apiUpdateUserProfile = new ApiClient(JSON_PLACEHOLDER_UPDATE_USER_PROFILE)
+const apiChangePassword = new ApiClient(CHANGE_PASSWORD)
+const apiMyOrder = new ApiClient(MY_ORDER)
+const apiMyOrderDetails = new ApiClient(MY_ORDER_DETAILS)
+const apiGetAddress = new ApiClient(GET_ADDRESS)
+const apiAddAddress_Update = new ApiClient(ADD_ADDRESS_AND_UPDATE)
+const apiDeleteAddress = new ApiClient(DELETE_ADDRESS)
+const apiCreateOrder = new ApiClient(CREATE_ORDER)
+
+
 export const getCartItem = async (header:any,body:any) =>{
   const response = await client.get("get-cart") 
 }
@@ -229,3 +244,76 @@ export const ApiUpdateUserProfile = async (header: any,auth:any) => {
       console.log(err.message);
     });
 };
+
+export const ApiChangePassword = async (header: any,auth:any) => {
+  return apiChangePassword
+    .post(header,auth,"")
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiMyOrder = async (header: any,auth:any) => {
+  return apiMyOrder
+    .get(header)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiMyOrderDetails = async (header: any,auth:any) => {
+  return apiMyOrderDetails
+    .get(header)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiGetAddress = async (header: any,auth:any) => {
+  return apiGetAddress
+    .get(header)
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiAddAndUpdateAddress = async (header: any,auth:any) => {
+  return apiAddAddress_Update
+    .post(header,auth,"")
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+
+export const ApiDeleteAddress = async (header: any,auth:any) => {
+  return apiDeleteAddress
+    .post(header,auth,"")
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+export const ApiCreateOrder = async (header: any,auth:any) => {
+  return apiCreateOrder
+    .post(header,auth,"")
+    .then((response) => response)
+    .then((data) => data)
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
+

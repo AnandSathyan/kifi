@@ -27,6 +27,7 @@ import ProductFiltered from "../components/Products/productFiltered/ProductFilte
 import LocationModal from "../components/modal/LocationModal";
 import PaginatedItems from "../components/DemoPage";
 import EditProfile from "../components/Profile/EditProfile";
+import OrderTracking from "../components/Order/OrderTracking";
 // import { ProductProvider } from "../context/ProductContext";
 // import MarsTopNav from "../components/tests/Test";
 
@@ -51,6 +52,7 @@ function App() {
         {/* <LocationModal /> */}
         <main>
           <Routers />
+          {/* <OrderTracking/> */}
 {/* <EditProfile/> */}
         </main>
         {/* <ProductView /> */}
