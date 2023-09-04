@@ -28,6 +28,7 @@ import LocationModal from "../components/modal/LocationModal";
 import PaginatedItems from "../components/DemoPage";
 import EditProfile from "../components/Profile/EditProfile";
 import OrderTracking from "../components/Order/OrderTracking";
+import MobileBottomBar from "../components/header/HeaderOptional/mobileBottomBar";
 // import { ProductProvider } from "../context/ProductContext";
 // import MarsTopNav from "../components/tests/Test";
 
@@ -57,6 +58,8 @@ function App() {
         </main>
         {/* <ProductView /> */}
         {/* <Cart /> */}
+      <MobileBottomBar/>
+
         <Footer />
       </Provider>
     </div>

@@ -1,46 +1,18 @@
 import React from "react";
-import { IoIosAdd, IoIosHeartEmpty, IoIosRemove } from "react-icons/io";
+import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import {
-  IoBagHandleOutline,
+
   IoClose,
-  IoGridOutline,
-  IoHome,
-  IoMenu,
+ 
 } from "react-icons/io5";
 
+import MobileBottomBar from "./mobileBottomBar";
+
 function HeaderOptional() {
+
   return (
     <div>
-      <div className="mobile-bottom-navigation">
-        <button className="action-btn" data-mobile-menu-open-btn>
-          <IoMenu />
-          {/* <ion-icon name="menu-outline"></ion-icon> */}
-        </button>
-
-        <button className="action-btn">
-          <IoBagHandleOutline />
-          {/* <ion-icon name="bag-handle-outline"></ion-icon> */}
-
-          <span className="count">0</span>
-        </button>
-
-        <button className="action-btn">
-          <IoHome />
-          {/* <ion-icon name="home-outline"></ion-icon> */}
-        </button>
-
-        <button className="action-btn">
-          <IoIosHeartEmpty />
-          {/* <ion-icon name="heart-outline"></ion-icon> */}
-
-          <span className="count">0</span>
-        </button>
-
-        <button className="action-btn" data-mobile-menu-open-btn>
-          <IoGridOutline />
-          {/* <ion-icon name="grid-outline"></ion-icon> */}
-        </button>
-      </div>
+      {/* <MobileBottomBar/> */}
 
       <nav className="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
         <div className="menu-top">
