@@ -9,9 +9,14 @@ import ReactPaginate from 'react-paginate';
 function WishList() {
   const Navigate = useNavigate()
   const dispatch = useDispatch();
+  const data = sessionStorage.getItem("AuthToken");
+
   useEffect(() => {
     //@ts-ignore
     dispatch(fetchKifiWishList());
+    if(!data){
+      Navigate("/Login")
+    }
   }, []);
   const WishListStore = useSelector((state: any) => state.GetWishList);
   console.log("WishListStore", WishListStore?.data?.data?.length);
