@@ -24,7 +24,7 @@ function ProductGrid(props:any) {
   const KifiStore= useSelector((state: any) => state.ProductSearch);
   const Loaders= useSelector((state: any) => state.Product.ApiStatus);
 //  let loaingStatus = Loaders.ApiStatus='loading' + "" 
-console.log("ProductStoreProductStore",props);
+// console.log("ProductStoreProductStore",props);
 
   useEffect(() => {
  
@@ -46,7 +46,7 @@ console.log("ProductStoreProductStore",props);
     e. stopPropagation()
     //@ts-ignore
     await dispatch(fetchKifiAddToWishList(val))
-    Navigate('/WishList')
+    // Navigate('/WishList')
   }
   const handleAddToCart = (data:any,e:any) =>{
     
