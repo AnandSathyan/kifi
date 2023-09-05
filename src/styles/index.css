@@ -2886,6 +2886,7 @@ footer {
   .header-top-bg {
     background: var(--eerie-black);
   }
+  
   /* .LoadBackground{
     -webkit-filter: blur(4px);
     -moz-filter: blur(4px);
@@ -2903,5 +2904,22 @@ footer {
     z-index: 999 !important;  
     /* background: rgba(248, 245, 245, 0.5);   */
   }
- 
+  
+}
+
+
+@media (max-width: 1024px) {
+  .cart-mobile{
+    display: flex;
+    
+    flex-direction: column;
+  }
+  .order-summary-mobile  {
+    width: 100%;
+    padding: 5%;
+  }
+  .cart-list-mobile{
+    width: 100%;
+    padding: 5%;
+  }
 }
