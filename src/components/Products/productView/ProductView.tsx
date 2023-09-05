@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Loader from "../../Loader/Loader";
 import {
   IoLogoFacebook,
   IoLogoInstagram,
@@ -12,9 +13,12 @@ import { fetchKifiCartAdd } from "../../../views/desktop/kifi/Cart/AddToCart.sli
 import { fetchKifiCart } from "../../../views/desktop/kifi/Cart/Cart.slice";
 import ProductGrid from "../ProductGrid/ProductGrid";
 import "./ProductView.css";
+import { ThreeDots } from  'react-loader-spinner'
 const imgs = document?.querySelectorAll(".img-select a");
 // const location = useLocation();
 // console.log("location", location);
+
+
 
 const imgBtns = Array.from(imgs);
 let imgId = 1;
@@ -48,13 +52,11 @@ function ProductView() {
   const location = useLocation();
   const dispatch = useDispatch()
   // console.log("location data in product", location.state);
-const CartStore = useSelector((state:any)=>state.GetWishList)
+// const ProductStore = useSelector((state:any)=>state.Product)
 // console.log("CartStore",CartStore?.data?.data?.id);
 
   const handleCart =async(data:any)=>{
-    console.log("cart product data",data?.id);
-    console.log("cart product location",location?.state);
-
+    
     
     const val = {
       data: {
@@ -66,9 +68,12 @@ const CartStore = useSelector((state:any)=>state.GetWishList)
    //@ts-ignore
    await dispatch(fetchKifiCartAdd(val));
   }
-  // useEffect(() => {
-  //   Navigate("/ProductView");
-  // }, []);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname])
+
   return (
     <div id="product" className="m-10">
       <div className="productCard-wrapper">
@@ -96,6 +101,7 @@ const CartStore = useSelector((state:any)=>state.GetWishList)
                   alt="shoe image"
                 />
               </div>
+             
             </div>
             <div className="img-select">
               <div className="img-item">
@@ -135,7 +141,7 @@ const CartStore = useSelector((state:any)=>state.GetWishList)
           {/* <!-- productCard right --> */}
           <div className="product-content">
             <h2 className="product-title">
-              {location?.state?.name ? location?.state?.product?.name : "Marine Fish"}
+              {location?.state?.name ? location?.state?.name : "Marine Fish"}
             </h2>
             <a className="product-link">{/* visit nike store */}</a>
             <div className="product-rating">
@@ -152,21 +158,14 @@ const CartStore = useSelector((state:any)=>state.GetWishList)
                 Old Price: <span>$257.00</span>
               </p> */}
               <p className="new-price">
-                 Price: <span>&#8377;{location?.state?.product?.price_list?.mrp} (5%)</span>
+                 Price: <span>&#8377;{location?.state?.price} (5%)</span>
               </p>
             </div>
 
             <div className="product-detail">
               <h2>about this item: </h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-                eveniet veniam tempora fuga tenetur placeat sapiente architecto
-                illum soluta consequuntur, aspernatur quidem at sequi ipsa!
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Consequatur, perferendis eius. Dignissimos, labore suscipit.
-                Unde.
+                {location?.state?.description}
               </p>
               <ul>
                 <li>{/* Color: <span>Black</span> */}</li>

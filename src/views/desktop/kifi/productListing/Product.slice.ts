@@ -48,7 +48,7 @@ export const KifiProductSlice = createSlice({
         fetchKifiProductListing.fulfilled,
         (state, action ) => {
           state.data = action.payload as ProductInterface;
-          state.ApiStatus = "success";
+          state.ApiStatus = "loading";
         }
       ),
       builder.addCase(fetchKifiProductListing.rejected, (state) => {

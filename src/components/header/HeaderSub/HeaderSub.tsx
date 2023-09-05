@@ -18,7 +18,7 @@ function HeaderSub() {
   // const val =KifiStore?.data?.data?.map((data: any, index: any) => {
   //   return (data?.category)
   // })
-  console.log("value from header ",KifiStore?.data?.data);
+  // console.log("value from header ",KifiStore?.data?.data);
   const filteredDataMarine = KifiStoreSubCategory?.data?.data?.filter((category_id:any)=>{return (category_id?.category_id == 2 )});
   const filteredDataShell = KifiStoreSubCategory?.data?.data?.filter((category_id:any)=>{return (category_id?.category_id == 3 )});
   

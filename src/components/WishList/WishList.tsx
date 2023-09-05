@@ -19,7 +19,7 @@ function WishList() {
     }
   }, []);
   const WishListStore = useSelector((state: any) => state.GetWishList);
-  console.log("WishListStore", WishListStore?.data?.data?.length);
+  // console.log("WishListStore", WishListStore?.data?.data?.length);
   const handleDeleteWishList = async(data:any,e:any) =>{
     const val = {
         data: 
@@ -33,7 +33,7 @@ function WishList() {
     await dispatch(fetchKifiWishList());
   }
 const handleProductView = (data:any) =>{
-  console.log("handleProductView data",data);
+  // console.log("handleProductView data",data);
   
     Navigate('/ProductView',{state:data})
 }

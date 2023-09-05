@@ -16,11 +16,16 @@ import { useNavigate } from "react-router-dom";
 import { fetchKifiProductListing,fetchKifiProductSearch } from "../../../views/desktop/kifi/productListing/Product.slice";
 import { fetchKifiCartAdd } from "../../../views/desktop/kifi/Cart/AddToCart.slice";
 import { fetchKifiAddToWishList } from "../../../views/desktop/kifi/WishList/AddToWishList.slice";
+import Loader from "../../Loader/Loader";
 
 function ProductGrid(props:any) {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const KifiStore= useSelector((state: any) => state.ProductSearch);
+  const Loaders= useSelector((state: any) => state.Product.ApiStatus);
+//  let loaingStatus = Loaders.ApiStatus='loading' + "" 
+console.log("ProductStoreProductStore",props);
+
   useEffect(() => {
  
     //@ts-ignore
@@ -28,10 +33,10 @@ function ProductGrid(props:any) {
 
     
   }, [!props?.search]);
-  console.log(
-    "KifiStore from product",KifiStore?.data?.data
+  // console.log(
+  //   "KifiStore from product",KifiStore?.data?.data
    
-  );
+  // );
   const handleAddToWishList = async(data:any,e:any) =>{
     const val = {
       data: 
@@ -69,7 +74,9 @@ function ProductGrid(props:any) {
           state: {
             name: category.name,
             image: category.thumbnail_url,
-            id:category.id
+            id:category.id,
+            description:category.description,
+            price:category.price_list.mrp
           },
         })
       }
@@ -84,7 +91,11 @@ const params = {
 },[props])
   return (
     <div>
+      <div className="absolute">
+   {/* {Loaders == "loading"?<Loader/>:null} */}
+   </div>
       <div id="Product-Main" className="product-main">
+
         <h2 className="title">New Products</h2>
 
         <div className="product-grid">

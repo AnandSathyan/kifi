@@ -13,7 +13,7 @@ function EditProfile() {
     const [selectedImage, setSelectedImage] = useState();
     // console.log("selectedImage",selectedImage);
     const dispatch = useDispatch()
-	console.log("profileStore",profileStore?.data?.data);
+	// console.log("profileStore",profileStore?.data?.data);
 	
 //     const handleUpdate = async(e:any) =>{
 //         console.log("selectedImage",e);
@@ -42,7 +42,7 @@ function EditProfile() {
 //     }
 
 	const handleImageUpload = () => {
-		console.log("image from image upload",images);
+		// console.log("image from image upload",images);
 		   //@ts-ignore
 		dispatch(fetchKifiUpdateUserProfile({
             "email":email,
@@ -56,7 +56,7 @@ function EditProfile() {
 	  };
     const handleUpdateProfile = (image:any) =>{
 		// console.log("email :",email,"name :",name,"mobile :",mobile);
-		console.log("imageimageimageimage",image);
+		// console.log("imageimageimageimage",image);
 		//@ts-ignore
 		setImage(URL.createObjectURL(image))
 		

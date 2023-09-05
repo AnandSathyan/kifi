@@ -35,6 +35,7 @@ const Routers = () => {
           element={
             <>
               <OriginalHeader />
+              
               <ImageSlider />
               <Category />
               <Products />
@@ -55,7 +56,7 @@ const Routers = () => {
           path="/Cart"
           element={
             <>
-              <HeaderSearch />
+              {/* <HeaderSearch /> */}
               <Cart />
             </>
           }
@@ -64,7 +65,7 @@ const Routers = () => {
           path="/WishList"
           element={
             <>
-              <HeaderSearch />
+              {/* <HeaderSearch /> */}
               <WishList />
               
             </>
@@ -130,6 +131,14 @@ const Routers = () => {
             </>
           }
         />
+      {/* <Route
+          path="/MobileLeftMenu"
+          element={
+            <>
+             <HeaderOptional/>
+            </>
+          }
+        /> */}
 
         <Route path="*" element={<h3>404 Page Not Found</h3>} />
       </Routes>

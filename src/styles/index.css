@@ -2900,7 +2900,8 @@ footer {
     top: 50px;
     width: 100%;
     height: 100%;
-    z-index: 999 !important;   
-    background: url('//upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Phi_fenomeni.gif/50px-Phi_fenomeni.gif') 50% 50% no-repeat rgb(249,249,249); 
+    z-index: 999 !important;  
+    /* background: rgba(248, 245, 245, 0.5);   */
   }
+ 
 }

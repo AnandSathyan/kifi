@@ -14,12 +14,12 @@ import { fetchKifiWishList } from "../../../views/desktop/kifi/WishList/WishList
 function HeaderSearch() {
   const Navigate = useNavigate();
   const dispatch = useDispatch()
-  const [search,setSearch] = useState()
-
+  const [search,setSearch] = useState([])
+  const [flag,setFlag] = useState(false)
   const WishListStore = useSelector((state: any) => state.GetWishList);
   const CartStore = useSelector((state: any) => state.GetCart);
 
-  console.log("WishListStoreheader", CartStore?.data?.data?.carts?.length);
+  // console.log("WishListStoreheader", CartStore?.data?.data?.carts?.length);
 // useEffect(()=>{
 // document.addEventListener('keydown',detectKeyPress, true)
 // },[])
@@ -35,6 +35,7 @@ function HeaderSearch() {
 // }
 
 useEffect(()=>{
+  
   //@ts-ignore
   dispatch(fetchKifiCart())
     //@ts-ignore
@@ -42,20 +43,24 @@ useEffect(()=>{
 
 },[])
   const handleSearch = (data:any) =>{
-    console.log("value from search",data)
+    console.log("value from search",data.key)
 
     // const params = {
     //   search: search,
     //   category: "ALL",
     // }
+    if(data.key == "Enter"){
+      setFlag(true)
+    }
+
     Navigate('/ProductFiltered',{
       state: {
-       search:search
+       search:search,
+       flag:flag
       }})
 
     //@ts-ignore
-    // dispatch(fetchKifiProductSearch(params))
-    // setSearch('')
+    // dispatch(fetchKifiProductSearch(params))  
   }
   
 const isLogin = sessionStorage.getItem("AuthToken")
@@ -87,14 +92,19 @@ const handleLogin = ()=>{
             <input
               type="search"
               name="search"
+              value={search}
               className="search-field"
               placeholder="Enter your product name..."
               onChange={(e:any)=>setSearch(e.target.value)}
+              onKeyDown={(e:any)=>handleSearch(e)}
+            id="search-button"
+
             />
 
             <button className="search-btn"
-            onKeyDown={(e:any)=>handleSearch(e)}
-            onClick={(e:any)=>handleSearch(e)} >
+            onClick={(e:any)=>handleSearch(e)}
+
+             >
               <IoSearchOutline />
               {/* <ion-icon name="search-outline"></ion-icon> */}
             </button>

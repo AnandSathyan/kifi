@@ -1,24 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
+
 import {
-
+  IoLogoFacebook,
+  IoLogoInstagram,
+  IoLogoLinkedin,
+  IoLogoTwitter,
   IoClose,
- 
 } from "react-icons/io5";
-
 import MobileBottomBar from "./mobileBottomBar";
 
-function HeaderOptional() {
+function HeaderOptional({handleClose}:any) {
+
+ 
 
   return (
-    <div>
+    <div className="">
       {/* <MobileBottomBar/> */}
 
-      <nav className="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+      <nav className="mobile-navigation-menu active has-scrollbar" data-mobile-menu>
         <div className="menu-top">
-          <h2 className="menu-title">Menu</h2>
+          {/* <h2 className="menu-title">Menu</h2> */}
+          <img
+              // src="./assets/images/logo/logo.svg"
+              src="http://kifi.zbeanztech.in/frondend/assets/imgs/theme/logo.png"
+              alt="Kifi's logo"
+              width="120"
+              height="36"
+              />
 
-          <button className="menu-close-btn" data-mobile-menu-close-btn>
+          <button className="menu-close-btn" data-mobile-menu-close-btn  onClick={handleClose}>
             <IoClose />
             {/* <ion-icon name="close-outline"></ion-icon> */}
           </button>
@@ -33,7 +44,7 @@ function HeaderOptional() {
 
           <li className="menu-category">
             <button className="accordion-menu" data-accordion-btn>
-              <p className="menu-title">Men's</p>
+              <p className="menu-title">Categories</p>
 
               <div>
                 <IoIosAdd />
@@ -46,25 +57,25 @@ function HeaderOptional() {
             <ul className="submenu-category-list" data-accordion>
               <li className="submenu-category">
                 <a href="#" className="submenu-title">
-                  Shirt
+                  
                 </a>
               </li>
 
               <li className="submenu-category">
                 <a href="#" className="submenu-title">
-                  Shorts & Jeans
+                  Blogs
                 </a>
               </li>
 
               <li className="submenu-category">
                 <a href="#" className="submenu-title">
-                  Safety Shoes
+                  About
                 </a>
               </li>
 
               <li className="submenu-category">
                 <a href="#" className="submenu-title">
-                  Wallet
+                  Contact
                 </a>
               </li>
             </ul>
@@ -72,7 +83,7 @@ function HeaderOptional() {
 
           <li className="menu-category">
             <button className="accordion-menu" data-accordion-btn>
-              <p className="menu-title">Women's</p>
+              <p className="menu-title">Products</p>
 
               <div>
                 <IoIosAdd />
@@ -111,7 +122,7 @@ function HeaderOptional() {
 
           <li className="menu-category">
             <button className="accordion-menu" data-accordion-btn>
-              <p className="menu-title">Jewelry</p>
+              <p className="menu-title">Blogs</p>
 
               <div>
                 <IoIosAdd />
@@ -150,7 +161,7 @@ function HeaderOptional() {
 
           <li className="menu-category">
             <button className="accordion-menu" data-accordion-btn>
-              <p className="menu-title">Perfume</p>
+              <p className="menu-title">About</p>
 
               <div>
                 <IoIosAdd />
@@ -189,7 +200,7 @@ function HeaderOptional() {
 
           <li className="menu-category">
             <a href="#" className="menu-title">
-              Blog
+              Contact
             </a>
           </li>
 
@@ -199,6 +210,64 @@ function HeaderOptional() {
             </a>
           </li>
         </ul>
+        <div className="menu-bottom">
+          <ul className="menu-category-list">
+            <li className="menu-category">
+              <button className="accordion-menu" data-accordion-btn>
+                <p className="menu-title">Language</p>
+
+                {/* <ion-icon
+                  name="caret-back-outline"
+                  className="caret-back"
+                ></ion-icon> */}
+              </button>
+
+              <ul className="submenu-category-list" data-accordion>
+                <li className="submenu-category">
+                  <a href="#" className="submenu-title">English</a>
+                </li>
+
+                <li className="submenu-category">
+                  <a href="#" className="submenu-title">Espa&ntilde;ol</a>
+                </li>
+
+                <li className="submenu-category">
+                  <a href="#" className="submenu-title">Fren&ccedil;h</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul className="menu-social-container">
+            <li>
+              <a href="#" className="social-link">
+              <IoLogoFacebook/>
+                {/* <ion-icon name="logo-facebook"></ion-icon> */}
+              </a>
+            </li>
+
+            <li>
+              <a href="#" className="social-link">
+                <IoLogoTwitter/>
+                {/* <ion-icon name="logo-twitter"></ion-icon> */}
+              </a>
+            </li>
+
+            <li>
+              <a href="#" className="social-link">
+                <IoLogoInstagram/>
+                {/* <ion-icon name="logo-instagram"></ion-icon> */}
+              </a>
+            </li>
+
+            <li>
+              <a href="#" className="social-link">
+                <IoLogoLinkedin/>
+                {/* <ion-icon name="logo-linkedin"></ion-icon> */}
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
   );

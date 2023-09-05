@@ -19,7 +19,7 @@ const SignUp = () => {
   const [mobile, setMobile] = useState();
   // const [flag, setFlag] = useState(false);
   const KifiStore = useSelector((state: any) => state.Register);
-  console.log("KifiStoreKifiStore", KifiStore?.data?.data);
+  // console.log("KifiStoreKifiStore", KifiStore?.data?.data);
   // const mobilemessage: string = KifiStore?.data?.data?.mobile;
   // const emailmessage: string = KifiStore?.data?.data?.email;
   // const passwormessage: string = KifiStore?.data?.data?.password;
@@ -28,7 +28,7 @@ const SignUp = () => {
   // const namemessage: string = KifiStore?.data?.data?.name;
   // const errorMessage: string = KifiStore?.data?.errormessage;
 
-  console.log("emailemail", email, name, password, confirmPassword, mobile);
+  // console.log("emailemail", email, name, password, confirmPassword, mobile);
   const params = {
     name: name,
     mobile: mobile,

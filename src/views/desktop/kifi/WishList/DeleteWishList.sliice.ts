@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ApiDeleteWishList } from "../../../../api/kifi";
 
 export const fetchKifiDeleteWishList = createAsyncThunk("Delete/WishList", async (param:any) => {
-    console.log("param?.idparam?.id",param?.data?.id);
+    // console.log("param?.idparam?.id",param?.data?.id);
     
   {
     const response = await ApiDeleteWishList(param?.data?.id,"","");

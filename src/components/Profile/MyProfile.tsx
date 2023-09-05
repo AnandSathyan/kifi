@@ -11,7 +11,7 @@ function MyProfile() {
     const [password,setPassword] = useState(false)
     const Navigate = useNavigate()
     const ProfileName = useSelector((state:any)=>state.GetUserProfile)
-    console.log("ProfileName",ProfileName?.data?.data);
+    // console.log("ProfileName",ProfileName?.data?.data);
     const dispatch = useDispatch()
     const handleLogOut = () =>{
         sessionStorage.setItem("AuthToken","")
@@ -26,7 +26,7 @@ dispatch(fetchKifiGetUserProfile())
       setFlag(!flag)
     }
     const handleEdit = () =>{
-      console.log("hiiii");
+      // console.log("hiiii");
       Navigate('/EditProfile')
     }
 

@@ -14,7 +14,7 @@ function ProductSidebar() {
   // const [open,setOpen] = useState(false)
   const handleAdd = () =>{
     // setOpen(true)
-    console.log("add ",open);
+    // console.log("add ",open);
     
   }
   const Navigate = useNavigate();

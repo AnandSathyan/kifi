@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ApiAddToWishList } from "../../../../api/kifi";
 
 export const fetchKifiAddToWishList = createAsyncThunk("AddTo/WishList", async (param:any) => {
-    console.log("param from redux",param?.data);
+    // console.log("param from redux",param?.data);
     
   {
     const response = await ApiAddToWishList("",param?.data);

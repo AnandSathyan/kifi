@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ApiAddToCart } from "../../../../api/kifi";
 
 export const fetchKifiCartAdd = createAsyncThunk("AddTo/Cart", async (param:any) => {
-  console.log("redux cart update",param?.data);
+  // console.log("redux cart update",param?.data);
   // console.log("redux cart update id",id);
 
   

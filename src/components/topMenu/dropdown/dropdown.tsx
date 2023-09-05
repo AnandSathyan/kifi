@@ -5,7 +5,7 @@ function Dropdown() {
   const handleDropdown = (e: any) => {
     setDropdown(!dropdown);
   };
-  console.log(dropdown);
+  // console.log(dropdown);
   return (
     <div>
       <button

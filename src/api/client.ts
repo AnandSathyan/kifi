@@ -11,7 +11,7 @@ class ApiClient {
   
   {
     try {
-      console.log("urlurl",url);
+      // console.log("urlurl",url);
       
       const response: AxiosResponse<T> = await axios.get<T>(
         this.baseURL + url,
@@ -31,7 +31,7 @@ class ApiClient {
   }
 
   public async post<T>(url: string, auth: any, data: any): Promise<T> {
-    console.log("authauthauth",data);
+    // console.log("authauthauth",data);
     
     try {
       const response: AxiosResponse<T> = await axios.post<T>(

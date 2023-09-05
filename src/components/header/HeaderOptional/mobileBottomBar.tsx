@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IoIosHeartEmpty } from 'react-icons/io';
 import {
     IoBagHandleOutline,
@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchKifiCart } from "../../../views/desktop/kifi/Cart/Cart.slice";
 import { fetchKifiWishList } from "../../../views/desktop/kifi/WishList/WishList.slice";
+import HeaderOptional from './HeaderOptional';
 
 function MobileBottomBar() {
     const dispatch = useDispatch()
@@ -19,6 +20,7 @@ const Navigate = useNavigate()
 const WishListStore = useSelector((state: any) => state.GetWishList);
   const CartStore = useSelector((state: any) => state.GetCart);
 const isLogin = sessionStorage.getItem("AuthToken")
+const [flag,setFlag] = useState(false)
 
   useEffect(()=>{
     //@ts-ignore
@@ -37,9 +39,19 @@ const isLogin = sessionStorage.getItem("AuthToken")
   
     }
   }
+  const handleLeftModal = () =>{
+    setFlag(!flag)
+  }
+  const handleClose = () =>{
+    setFlag(false)
+  }
+  const handleOpen = () =>{
+   
+  }
   return (
-    <div><div className="mobile-bottom-navigation">
-        <button className="action-btn" data-mobile-menu-open-btn>
+    <div>
+        <div className="mobile-bottom-navigation">
+        <button className="action-btn" data-mobile-menu-open-btn onClick={()=>handleLeftModal()}>
           <IoMenu />
           {/* <ion-icon name="menu-outline"></ion-icon> */}
         </button>
@@ -70,7 +82,10 @@ const isLogin = sessionStorage.getItem("AuthToken")
           <IoPersonOutline />
           {/* <ion-icon name="grid-outline"></ion-icon> */}
         </button>
-      </div></div>
+      </div>
+      {flag?<HeaderOptional handleClose={handleClose}/>:null}
+
+      </div>
   )
 }
 

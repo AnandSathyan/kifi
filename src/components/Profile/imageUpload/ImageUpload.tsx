@@ -23,7 +23,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ handleUpdateProfile }) => {
   const handleUpload = () => {
     
   };
-console.log("selectedImageselectedImage",selectedImage);
+// console.log("selectedImageselectedImage",selectedImage);
 
   return (
     <div>

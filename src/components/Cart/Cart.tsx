@@ -27,7 +27,7 @@ function Cart() {
     }
 
   }, []);
-console.log("data-123",data);
+// console.log("data-123",data);eee
 
   const handleCartDelete = async (data: any) => {
     const val = {
@@ -67,7 +67,7 @@ console.log("data-123",data);
     await dispatch(fetchKifiCart(data));
   };
   const handleCartDecr = async (data: any) => {
-    console.log("data?.qty", data?.qty);
+    // console.log("data?.qty", data?.qty);
     const val = {
       data: {
         qty: data?.qty - 1,
