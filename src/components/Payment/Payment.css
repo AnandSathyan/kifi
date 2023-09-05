@@ -530,3 +530,8 @@ Credits
   text-decoration: none;
   color: rgba(0, 0, 0, 0.12);
 }
+@media (max-width: 670px){
+.payment{
+  /* margin-top: -60%; */
+}
+}

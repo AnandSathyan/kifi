@@ -51,6 +51,7 @@ const SignUp = () => {
 
     if (KifiStore?.data?.errorcode == 0) {
       toast.success(KifiStore?.data?.data);
+      Navigate('/')
 
       // setTimeout(() => {
       //   Navigate("/Payment");
