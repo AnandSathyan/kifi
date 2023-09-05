@@ -17,6 +17,7 @@ import { fetchKifiProductListing,fetchKifiProductSearch } from "../../../views/d
 import { fetchKifiCartAdd } from "../../../views/desktop/kifi/Cart/AddToCart.slice";
 import { fetchKifiAddToWishList } from "../../../views/desktop/kifi/WishList/AddToWishList.slice";
 import Loader from "../../Loader/Loader";
+import { fetchKifiWishList } from "../../../views/desktop/kifi/WishList/WishList.slice";
 
 function ProductGrid(props:any) {
   const dispatch = useDispatch();
@@ -46,6 +47,8 @@ function ProductGrid(props:any) {
     e. stopPropagation()
     //@ts-ignore
     await dispatch(fetchKifiAddToWishList(val))
+    //@ts-ignore
+    await dispatch(fetchKifiWishList())
     // Navigate('/WishList')
   }
   const handleAddToCart = (data:any,e:any) =>{
